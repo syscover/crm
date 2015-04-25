@@ -1,4 +1,4 @@
-<?php namespace Syscover\Plantilla\Controllers;
+<?php namespace Syscover\Crm\Controllers;
 
 /**
  * @package	    Pulsar
@@ -13,34 +13,34 @@
 use Illuminate\Support\Facades\Request;
 use Syscover\Pulsar\Controllers\Controller;
 use Syscover\Pulsar\Traits\ControllerTrait;
-use Syscover\Plantilla\Models\Categoria;
+use Syscover\Crm\Models\Family;
 
-class Categorias extends Controller {
+class Families extends Controller {
 
     use ControllerTrait;
 
-    protected $routeSuffix  = 'MifinanCategoria';
-    protected $folder       = 'categorias';
-    protected $package      = 'mifinanciacion';
-    protected $aColumns     = ['id_200', 'name_200'];
-    protected $nameM        = 'name_200';
-    protected $model        = '\Syscover\Mifinanciacion\Models\Categoria';
-    protected $icon         = 'icomoon-icon-power';
-    protected $objectTrans  = 'category';
+    protected $routeSuffix  = 'CrmFamily';
+    protected $folder       = 'families';
+    protected $package      = 'crm';
+    protected $aColumns     = ['id_300', 'name_300'];
+    protected $nameM        = 'name_300';
+    protected $model        = '\Syscover\Crm\Models\Family';
+    protected $icon         = 'icomoon-icon-grid';
+    protected $objectTrans  = 'family';
 
     public function storeCustomRecord()
     {
-        Categoria::create([
-            'id_200'    => Request::input('id'),
-            'name_200'  => Request::input('name')
+        Family::create([
+            'id_300'    => Request::input('id'),
+            'name_300'  => Request::input('name')
         ]);
     }
     
     public function updateCustomRecord($parameters)
     {
-        Categoria::where('id_200', $parameters['id'])->update([
-            'id_200'    => Request::input('id'),
-            'name_200'  => Request::input('name')
+        Family::where('id_300', $parameters['id'])->update([
+            'id_300'    => Request::input('id'),
+            'name_300'  => Request::input('name')
         ]);
     }
 }

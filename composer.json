@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Syscover\\Comunik\\": "src/Syscover/Crm"
+            "Syscover\\Crm\\": "src/Syscover/Crm"
         }
     },
     "minimum-stability": "dev"

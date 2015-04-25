@@ -1,4 +1,4 @@
-<?php namespace Syscover\Plantilla\Models;
+<?php namespace Syscover\Crm\Models;
 
 /**
  * @package	    Pulsar
@@ -18,10 +18,10 @@ class Family extends Model {
 
     use ModelTrait;
 
-	protected $table        = '008_070_family';
-    protected $primaryKey   = 'id_070';
+	protected $table        = '012_300_family';
+    protected $primaryKey   = 'id_300';
     public $timestamps      = false;
-    protected $fillable     = ['id_070', 'name_070'];
+    protected $fillable     = ['id_300', 'name_300'];
     private static $rules   = [
         'name'  => 'required|between:2,50'
     ];
