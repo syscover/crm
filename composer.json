@@ -1,0 +1,22 @@
+{
+    "name": "syscover/crm",
+    "version": "2.0.0",
+    "description": "CRM package",
+    "keywords": ["syscover","pulsar","laravel","CRM"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "SYSCOVER SL",
+            "email": "info@syscover.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Syscover\\Comunik\\": "src/Syscover/Crm"
+        }
+    },
+    "minimum-stability": "dev"
+}
