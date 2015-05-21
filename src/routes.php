@@ -10,7 +10,7 @@
 |
 */
 
-Route::group(['middleware' => ['auth.pulsar','permission.pulsar']], function() {
+Route::group(['middleware' => ['auth.pulsar','permission.pulsar','locale.pulsar']], function() {
 
     /*
     |--------------------------------------------------------------------------
