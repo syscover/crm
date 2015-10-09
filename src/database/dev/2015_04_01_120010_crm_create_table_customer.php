@@ -15,12 +15,36 @@ class CrmCreateTableCustomer extends Migration {
         Schema::create('012_301_customer', function(Blueprint $table)
         {
             $table->engine = 'InnoDB';
+
             $table->increments('id_301')->unsigned();
+            $table->integer('date_301')->nullable();
+            $table->boolean('gender_301', 100)->nullable();
             $table->string('name_301', 100)->nullable();
             $table->string('surname_301', 100)->nullable();
+            $table->string('image_301', 50)->nullable();
             $table->string('email_301', 50)->nullable();
             $table->integer('birthdate_301')->nullable();
 
+            $table->string('phone_301', 50)->nullable();
+            $table->string('mobile_301', 50)->nullable();
+
+            // access
+            $table->string('user_301', 50);
+            $table->string('password_301', 255);
+            $table->boolean('active_301');
+
+
+            // profesión
+            // adquisición - medio por el que se dió de alta
+            // Ingresos
+            // suscribe a news??
+            // observaciones internas
+
+
+            // preguntas particulares
+            // ¿cuantos hijos tiene? integer
+            // ¿cuantas escapadas hace al año? integer
+            // ¿que valor añadido busca en una escapada? select
 
             // geolocation data
             $table->string('country_301', 2);
