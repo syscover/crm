@@ -28,7 +28,7 @@ class Families extends Controller {
     protected $icon         = 'icomoon-icon-grid';
     protected $objectTrans  = 'family';
 
-    public function storeCustomRecord()
+    public function storeCustomRecord($request, $parameters)
     {
         Family::create([
             'id_300'    => Request::input('id'),
@@ -36,7 +36,7 @@ class Families extends Controller {
         ]);
     }
     
-    public function updateCustomRecord($parameters)
+    public function updateCustomRecord($request, $parameters)
     {
         Family::where('id_300', $parameters['id'])->update([
             'id_300'    => Request::input('id'),
