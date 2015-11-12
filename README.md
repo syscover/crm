@@ -1,4 +1,4 @@
-# Comunik App to Laravel 5
+# CRN App to Laravel 5
 
 ## Installation
 
