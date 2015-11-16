@@ -9,8 +9,8 @@ class CrmResourceTableSeeder extends Seeder {
     {
         Resource::insert([
             ['id_007' => 'crm',             'name_007' => 'CRM Package',    'package_007' => '12'],
-            ['id_007' => 'crm-customer',    'name_007' => 'Sections',       'package_007' => '12'],
-            ['id_007' => 'crm-family',      'name_007' => 'Families',       'package_007' => '12'],
+            ['id_007' => 'crm-customer',    'name_007' => 'Customer',       'package_007' => '12'],
+            ['id_007' => 'crm-group',       'name_007' => 'Groups',         'package_007' => '12'],
         ]);
     }
 }

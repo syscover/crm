@@ -2,7 +2,7 @@
 
 @section('script')
     @parent
-    <!-- crm::families.index -->
+    <!-- crm::groups.index -->
     <script type="text/javascript">
         $(document).ready(function() {
             if ($.fn.dataTable)
@@ -16,21 +16,21 @@
                     ],
                     "bProcessing": true,
                     "bServerSide": true,
-                    "sAjaxSource": "{{ route('jsonData' . $routeSuffix) }}"
+                    "sAjaxSource": "{{ route('jsonData' . ucfirst($routeSuffix)) }}"
                 }).fnSetFilteringDelay();
             }
         });
     </script>
-    <!-- crm::families.index -->
+    <!-- crm::groups.index -->
 @stop
 
 @section('tHead')
-    <!-- crm::families.index -->
+    <!-- crm::groups.index -->
     <tr>
         <th data-hide="phone,tablet">ID.</th>
         <th data-class="expand">{{ trans('pulsar::pulsar.name') }}</th>
         <th class="checkbox-column"><input type="checkbox" class="uniform"></th>
         <th>{{ trans_choice('pulsar::pulsar.action', 2) }}</th>
     </tr>
-    <!-- /crm::families.index -->
+    <!-- /crm::groups.index -->
 @stop

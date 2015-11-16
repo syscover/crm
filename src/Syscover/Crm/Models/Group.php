@@ -14,11 +14,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Validator;
 use Syscover\Pulsar\Traits\TraitModel;
 
-class Family extends Model {
+class Group extends Model {
 
     use TraitModel;
 
-	protected $table        = '012_300_family';
+	protected $table        = '012_300_group';
     protected $primaryKey   = 'id_300';
     public $timestamps      = false;
     protected $fillable     = ['id_300', 'name_300'];

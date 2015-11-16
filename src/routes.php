@@ -10,20 +10,35 @@
 |
 */
 
-Route::group(['middleware' => ['auth.pulsar','permission.pulsar','locale.pulsar']], function() {
+Route::group(['middleware' => ['auth.pulsar', 'permission.pulsar', 'locale.pulsar']], function() {
 
     /*
     |--------------------------------------------------------------------------
-    | FAMILY
+    | CUSTOMER
     |--------------------------------------------------------------------------
     */
-    Route::any(config('pulsar.appName') . '/crm/family/{offset?}',                          ['as'=>'CrmFamily',                   'uses'=>'Syscover\Crm\Controllers\Families@index',                      'resource' => 'crm-family',        'action' => 'access']);
-    Route::any(config('pulsar.appName') . '/crm/family/json/data',                          ['as'=>'jsonDataCrmFamily',           'uses'=>'Syscover\Crm\Controllers\Families@jsonData',                   'resource' => 'crm-family',        'action' => 'access']);
-    Route::get(config('pulsar.appName') . '/crm/family/create/{offset}',                    ['as'=>'createCrmFamily',             'uses'=>'Syscover\Crm\Controllers\Families@createRecord',               'resource' => 'crm-family',        'action' => 'create']);
-    Route::post(config('pulsar.appName') . '/crm/family/store/{offset}',                    ['as'=>'storeCrmFamily',              'uses'=>'Syscover\Crm\Controllers\Families@storeRecord',                'resource' => 'crm-family',        'action' => 'create']);
-    Route::get(config('pulsar.appName') . '/crm/family/{id}/edit/{offset}',                 ['as'=>'editCrmFamily',               'uses'=>'Syscover\Crm\Controllers\Families@editRecord',                 'resource' => 'crm-family',        'action' => 'access']);
-    Route::put(config('pulsar.appName') . '/crm/family/update/{id}/{offset}',               ['as'=>'updateCrmFamily',             'uses'=>'Syscover\Crm\Controllers\Families@updateRecord',               'resource' => 'crm-family',        'action' => 'edit']);
-    Route::get(config('pulsar.appName') . '/crm/family/delete/{id}/{offset}',               ['as'=>'deleteCrmFamily',             'uses'=>'Syscover\Crm\Controllers\Families@deleteRecord',               'resource' => 'crm-family',        'action' => 'delete']);
-    Route::delete(config('pulsar.appName') . '/crm/family/delete/select/records',           ['as'=>'deleteSelectCrmFamily',       'uses'=>'Syscover\Crm\Controllers\Families@deleteRecordsSelect',        'resource' => 'crm-family',        'action' => 'delete']);
+    Route::any(config('pulsar.appName') . '/crm/customers/{offset?}',                          ['as'=>'crmCustomer',                   'uses'=>'Syscover\Crm\Controllers\CustomerController@index',                      'resource' => 'crm-customer',        'action' => 'access']);
+    Route::any(config('pulsar.appName') . '/crm/customers/json/data',                          ['as'=>'jsonDataCrmCustomer',           'uses'=>'Syscover\Crm\Controllers\CustomerController@jsonData',                   'resource' => 'crm-customer',        'action' => 'access']);
+    Route::get(config('pulsar.appName') . '/crm/customers/create/{offset}',                    ['as'=>'createCrmCustomer',             'uses'=>'Syscover\Crm\Controllers\CustomerController@createRecord',               'resource' => 'crm-customer',        'action' => 'create']);
+    Route::post(config('pulsar.appName') . '/crm/customers/store/{offset}',                    ['as'=>'storeCrmCustomer',              'uses'=>'Syscover\Crm\Controllers\CustomerController@storeRecord',                'resource' => 'crm-customer',        'action' => 'create']);
+    Route::get(config('pulsar.appName') . '/crm/customers/{id}/edit/{offset}',                 ['as'=>'editCrmCustomer',               'uses'=>'Syscover\Crm\Controllers\CustomerController@editRecord',                 'resource' => 'crm-customer',        'action' => 'access']);
+    Route::put(config('pulsar.appName') . '/crm/customers/update/{id}/{offset}',               ['as'=>'updateCrmCustomer',             'uses'=>'Syscover\Crm\Controllers\CustomerController@updateRecord',               'resource' => 'crm-customer',        'action' => 'edit']);
+    Route::get(config('pulsar.appName') . '/crm/customers/delete/{id}/{offset}',               ['as'=>'deleteCrmCustomer',             'uses'=>'Syscover\Crm\Controllers\CustomerController@deleteRecord',               'resource' => 'crm-customer',        'action' => 'delete']);
+    Route::delete(config('pulsar.appName') . '/crm/customers/delete/select/records',           ['as'=>'deleteSelectCrmCustomer',       'uses'=>'Syscover\Crm\Controllers\CustomerController@deleteRecordsSelect',        'resource' => 'crm-customer',        'action' => 'delete']);
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | GROUP
+    |--------------------------------------------------------------------------
+    */
+    Route::any(config('pulsar.appName') . '/crm/groups/{offset?}',                          ['as'=>'crmGroup',                   'uses'=>'Syscover\Crm\Controllers\GroupController@index',                      'resource' => 'crm-group',        'action' => 'access']);
+    Route::any(config('pulsar.appName') . '/crm/groups/json/data',                          ['as'=>'jsonDataCrmGroup',           'uses'=>'Syscover\Crm\Controllers\GroupController@jsonData',                   'resource' => 'crm-group',        'action' => 'access']);
+    Route::get(config('pulsar.appName') . '/crm/groups/create/{offset}',                    ['as'=>'createCrmGroup',             'uses'=>'Syscover\Crm\Controllers\GroupController@createRecord',               'resource' => 'crm-group',        'action' => 'create']);
+    Route::post(config('pulsar.appName') . '/crm/groups/store/{offset}',                    ['as'=>'storeCrmGroup',              'uses'=>'Syscover\Crm\Controllers\GroupController@storeRecord',                'resource' => 'crm-group',        'action' => 'create']);
+    Route::get(config('pulsar.appName') . '/crm/groups/{id}/edit/{offset}',                 ['as'=>'editCrmGroup',               'uses'=>'Syscover\Crm\Controllers\GroupController@editRecord',                 'resource' => 'crm-group',        'action' => 'access']);
+    Route::put(config('pulsar.appName') . '/crm/groups/update/{id}/{offset}',               ['as'=>'updateCrmGroup',             'uses'=>'Syscover\Crm\Controllers\GroupController@updateRecord',               'resource' => 'crm-group',        'action' => 'edit']);
+    Route::get(config('pulsar.appName') . '/crm/groups/delete/{id}/{offset}',               ['as'=>'deleteCrmGroup',             'uses'=>'Syscover\Crm\Controllers\GroupController@deleteRecord',               'resource' => 'crm-group',        'action' => 'delete']);
+    Route::delete(config('pulsar.appName') . '/crm/groups/delete/select/records',           ['as'=>'deleteSelectCrmGroup',       'uses'=>'Syscover\Crm\Controllers\GroupController@deleteRecordsSelect',        'resource' => 'crm-group',        'action' => 'delete']);
 
 });

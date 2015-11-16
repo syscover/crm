@@ -13,34 +13,32 @@
 use Illuminate\Support\Facades\Request;
 use Syscover\Pulsar\Controllers\Controller;
 use Syscover\Pulsar\Traits\TraitController;
-use Syscover\Crm\Models\Family;
+use Syscover\Crm\Models\Group;
 
-class Families extends Controller {
+class GroupController extends Controller {
 
     use TraitController;
 
-    protected $routeSuffix  = 'CrmFamily';
-    protected $folder       = 'families';
+    protected $routeSuffix  = 'crmGroup';
+    protected $folder       = 'groups';
     protected $package      = 'crm';
     protected $aColumns     = ['id_300', 'name_300'];
     protected $nameM        = 'name_300';
-    protected $model        = '\Syscover\Crm\Models\Family';
-    protected $icon         = 'icomoon-icon-grid';
-    protected $objectTrans  = 'family';
+    protected $model        = '\Syscover\Crm\Models\Group';
+    protected $icon         = 'fa fa-users';
+    protected $objectTrans  = 'group';
 
     public function storeCustomRecord($request, $parameters)
     {
-        Family::create([
-            'id_300'    => Request::input('id'),
-            'name_300'  => Request::input('name')
+        Group::create([
+            'name_300'  => $request->input('name')
         ]);
     }
     
     public function updateCustomRecord($request, $parameters)
     {
-        Family::where('id_300', $parameters['id'])->update([
-            'id_300'    => Request::input('id'),
-            'name_300'  => Request::input('name')
+        Group::where('id_300', $parameters['id'])->update([
+            'name_300'  => $request->input('name')
         ]);
     }
 }
