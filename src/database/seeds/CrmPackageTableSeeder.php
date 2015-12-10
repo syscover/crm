@@ -8,7 +8,7 @@ class CrmPackageTableSeeder extends Seeder
     public function run()
     {
         Package::insert([
-            ['id_012' => '12', 'name_012' => 'CRM Package', 'folder_012' => 'crm', 'sorting_012' => 12, 'active_012' => '0']
+            ['id_012' => '9', 'name_012' => 'CRM Package', 'folder_012' => 'crm', 'sorting_012' => 9, 'active_012' => '0']
         ]);
     }
 }

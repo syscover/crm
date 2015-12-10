@@ -15,16 +15,16 @@ use Sofa\Eloquence\Mappable;
  * @package     Syscover\Market\Models
  */
 
-class Group extends Model {
+class Customer extends Model {
 
     use TraitModel;
     use Eloquence, Mappable;
 
-	protected $table        = '009_300_group';
-    protected $primaryKey   = 'id_300';
-    protected $suffix       = '300';
+	protected $table        = '009_301_customer';
+    protected $primaryKey   = 'id_301';
+    protected $suffix       = '301';
     public $timestamps      = false;
-    protected $fillable     = ['id_300', 'name_300'];
+    protected $fillable     = ['id_301', 'group_301', 'date_301', 'company_301'];
     protected $maps         = [];
     protected $relationMaps = [];
     private static $rules   = [
