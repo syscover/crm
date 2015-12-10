@@ -24,7 +24,7 @@ class Customer extends Model {
     protected $primaryKey   = 'id_301';
     protected $suffix       = '301';
     public $timestamps      = false;
-    protected $fillable     = ['id_301', 'group_301', 'date_301', 'company_301'];
+    protected $fillable     = ['id_301', 'group_301', 'date_301', 'company_301', 'tin_301', 'gender_301', 'name_301', 'surname_301', 'avatar_301', 'birth_date_301', 'email_301', 'phone_301', 'mobile_301', 'user_301', 'password_301', 'active_301', 'confirmed_301', 'country_301', 'territorial_area_1_301', 'territorial_area_2_301', 'territorial_area_3_301', 'cp_301', 'locality_301', 'address_301', 'latitude_301', 'longitude_301', 'custom_field_group_301', 'data_301'];
     protected $maps         = [];
     protected $relationMaps = [];
     private static $rules   = [
@@ -35,4 +35,24 @@ class Customer extends Model {
     {
         return Validator::make($data, static::$rules);
 	}
+
+    public function scopeBuilder($query)
+    {
+        return $query->join('009_300_group', '009_301_customer.group_301', '=', '009_300_group.id_300');
+    }
+
+    /**
+     * Get group from user
+     *
+     * @return \Syscover\Crm\Models\Group
+     */
+    public function getGroup()
+    {
+        return $this->belongsTo(Group::class, 'group_301');
+    }
+
+    protected static function addToGetRecordsLimit()
+    {
+        return Customer::builder();
+    }
 }

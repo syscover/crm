@@ -19,15 +19,15 @@ class CrmCreateTableCustomer extends Migration {
 
                 $table->increments('id_301')->unsigned();
                 $table->integer('group_301')->unsigned();
-                $table->integer('date_301')->nullable();
-                $table->string('company_301', 100)->nullable();
+                $table->integer('date_301');
+                $table->string('company_301')->nullable();
                 $table->string('tin_301', 50)->nullable();
                 $table->boolean('gender_301')->nullable();
                 $table->string('name_301', 50)->nullable();
                 $table->string('surname_301', 50)->nullable();
-                $table->string('image_301')->nullable();
+                $table->string('avatar_301')->nullable();
                 $table->integer('birth_date_301')->nullable()->unsigned();
-                $table->string('email_301', 50)->nullable();
+                $table->string('email_301', 50);
                 $table->string('phone_301', 50)->nullable();
                 $table->string('mobile_301', 50)->nullable();
 
@@ -35,6 +35,7 @@ class CrmCreateTableCustomer extends Migration {
                 $table->string('user_301', 50);
                 $table->string('password_301');
                 $table->boolean('active_301');
+                $table->boolean('confirmed_301');
 
                 // geolocation data
                 $table->string('country_301', 2)->nullable();

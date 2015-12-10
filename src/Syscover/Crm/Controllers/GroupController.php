@@ -14,11 +14,11 @@ class GroupController extends Controller {
     use TraitController;
 
     protected $routeSuffix  = 'crmGroup';
-    protected $folder       = 'groups';
+    protected $folder       = 'group';
     protected $package      = 'crm';
     protected $aColumns     = ['id_300', 'name_300'];
     protected $nameM        = 'name_300';
-    protected $model        = '\Syscover\Crm\Models\Group';
+    protected $model        = \Syscover\Crm\Models\Group::class;
     protected $icon         = 'fa fa-users';
     protected $objectTrans  = 'group';
 
