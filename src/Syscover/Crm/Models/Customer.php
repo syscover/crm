@@ -1,5 +1,8 @@
 <?php namespace Syscover\Crm\Models;
 
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Syscover\Pulsar\Models\Model;
 use Illuminate\Support\Facades\Validator;
 use Syscover\Pulsar\Traits\TraitModel;
@@ -15,10 +18,11 @@ use Sofa\Eloquence\Mappable;
  * @package     Syscover\Market\Models
  */
 
-class Customer extends Model {
-
+class Customer extends Model implements AuthenticatableContract, CanResetPasswordContract
+{
     use TraitModel;
     use Eloquence, Mappable;
+    use CanResetPassword;
 
 	protected $table        = '009_301_customer';
     protected $primaryKey   = 'id_301';
@@ -54,5 +58,76 @@ class Customer extends Model {
     protected static function addToGetRecordsLimit()
     {
         return Customer::builder();
+    }
+
+    /**
+     * Get the unique identifier for the user.
+     *
+     * @return mixed
+     */
+    public function getAuthIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * Get the password for the user.
+     *
+     * @return string
+     */
+    public function getAuthPassword()
+    {
+        return $this->password_301;
+    }
+
+    /**
+     * Get the token value for the "remember me" session.
+     *
+     * @return string
+     */
+    public function getRememberToken()
+    {
+        return $this->{$this->getRememberTokenName()};
+    }
+
+    /**
+     * Set the token value for the "remember me" session.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setRememberToken($value)
+    {
+        $this->{$this->getRememberTokenName()} = $value;
+    }
+
+    /**
+     * Get the column name for the "remember me" token.
+     *
+     * @return string
+     */
+    public function getRememberTokenName()
+    {
+        return 'remember_token_301';
+    }
+
+    /**
+     * Get the e-mail address where password reset links are sent.
+     *
+     * @return string
+     */
+    public function getEmailForPasswordReset()
+    {
+        return $this->email_301;
+    }
+
+    /**
+     * Get the name of the unique identifier for the user.
+     *
+     * @return string
+     */
+    public function getAuthIdentifierName()
+    {
+        return $this->user_301;
     }
 }
