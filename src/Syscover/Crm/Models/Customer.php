@@ -55,7 +55,7 @@ class Customer extends Model implements AuthenticatableContract, CanResetPasswor
         return $this->belongsTo(Group::class, 'group_301');
     }
 
-    protected static function addToGetRecordsLimit()
+    protected static function addToGetIndexRecords($parameters)
     {
         return Customer::builder();
     }

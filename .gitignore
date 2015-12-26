@@ -1,11 +1,13 @@
 workbench/
 WORK/
+docs/cache/
+sami.phar
 .env
 
 # -- Composer -----------------------------------------
 composer.phar
 composer.lock
-vendor/
+/vendor/
 
 # -- PHPUnit ------------------------------------------
 app/phpunit.xml  
