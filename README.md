@@ -5,6 +5,7 @@
 **1 - After install Laravel framework, insert on file composer.json, inside require object this value**
 ```
 "syscover/crm": "dev-master"
+```
 
 and execute on console:
 ```
