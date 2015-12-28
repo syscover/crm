@@ -53,7 +53,7 @@ class CrmCreateTableCustomer extends Migration {
 
                 $table->text('data_301')->nullable();
 
-                $table->foreign('group_301', 'fk01_012_301_customer')->references('id_300')->on('012_300_group')
+                $table->foreign('group_301', 'fk01_012_301_customer')->references('id_300')->on('009_300_group')
                     ->onDelete('restrict')->onUpdate('cascade');
                 $table->foreign('country_301', 'fk02_012_301_customer')->references('id_002')->on('001_002_country')
                     ->onDelete('restrict')->onUpdate('cascade');
