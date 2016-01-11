@@ -43,10 +43,20 @@ class CustomerController extends Controller {
     {
         $parameters['groups']       = Group::all();
 
-        $parameters['genres']       = array_map(function($object){
+        $parameters['genres']       = array_map(function($object) {
             $object->name = trans($object->name);
             return $object;
         }, config('pulsar.genres'));
+
+        $parameters['treatments']   = array_map(function($object) {
+            $object->name = trans($object->name);
+            return $object;
+        }, config('pulsar.treatments'));
+
+        $parameters['states']       = array_map(function($object) {
+            $object->name = trans($object->name);
+            return $object;
+        }, config('pulsar.states'));
 
         return $parameters;
     }
@@ -58,14 +68,16 @@ class CustomerController extends Controller {
             'date_301'                  => $request->has('date')? \DateTime::createFromFormat(config('pulsar.datePattern'), $request->input('date'))->getTimestamp() : null,
             'company_301'               => empty($request->input('company'))? null : $request->input('company'),
             'tin_301'                   => empty($request->input('tin'))? null : $request->input('tin'),
-            'gender_301'                => empty($request->input('gender'))? null : $request->input('gender'),
+            'gender_301'                => $request->has('gender')? $request->input('gender') : null,
+            'treatment_301'             => $request->has('treatment')? $request->input('treatment') : null,
+            'state_301'                 => $request->has('state')? $request->input('state') : null,
             'name_301'                  => empty($request->input('name'))? null : $request->input('name'),
             'surname_301'               => empty($request->input('surname'))? null : $request->input('surname'),
             'avatar_301'                => empty($request->input('avatar'))? null : $request->input('avatar'),
             'birth_date_301'            => $request->has('birthDate')? \DateTime::createFromFormat(config('pulsar.datePattern'), $request->input('birthDate'))->getTimestamp() : null,
             'email_301'                 => $request->input('email'),
             'phone_301'                 => empty($request->input('phone'))? null : $request->input('phone'),
-            'mobile_301'                => empty($request->input('phone'))? null : $request->input('mobile'),
+            'mobile_301'                => empty($request->input('mobile'))? null : $request->input('mobile'),
             'user_301'                  => $request->input('user'),
             'password_301'              => Hash::make($request->input('password')),
             'active_301'                => $request->has('active'),
@@ -91,6 +103,16 @@ class CustomerController extends Controller {
             return $object;
         }, config('pulsar.genres'));
 
+        $parameters['treatments']   = array_map(function($object) {
+            $object->name = trans($object->name);
+            return $object;
+        }, config('pulsar.treatments'));
+
+        $parameters['states']       = array_map(function($object) {
+            $object->name = trans($object->name);
+            return $object;
+        }, config('pulsar.states'));
+
         return $parameters;
     }
     
@@ -101,7 +123,9 @@ class CustomerController extends Controller {
             'date_301'                  => $request->has('date')? \DateTime::createFromFormat(config('pulsar.datePattern'), $request->input('date'))->getTimestamp() : null,
             'company_301'               => empty($request->input('company'))? null : $request->input('company'),
             'tin_301'                   => empty($request->input('tin'))? null : $request->input('tin'),
-            'gender_301'                => empty($request->input('gender'))? null : $request->input('gender'),
+            'gender_301'                => $request->has('gender')? $request->input('gender') : null,
+            'treatment_301'             => $request->has('treatment')? $request->input('treatment') : null,
+            'state_301'                 => $request->has('state')? $request->input('state') : null,
             'name_301'                  => empty($request->input('name'))? null : $request->input('name'),
             'surname_301'               => empty($request->input('surname'))? null : $request->input('surname'),
             'avatar_301'                => empty($request->input('avatar'))? null : $request->input('avatar'),

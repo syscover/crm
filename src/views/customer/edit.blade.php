@@ -159,7 +159,15 @@
     @include('pulsar::includes.html.form_text_group', ['label' => trans('pulsar::pulsar.surname'), 'name' => 'surname', 'value' => $object->surname_301, 'maxLength' => '50', 'rangeLength' => '2,50'])
     <div class="row">
         <div class="col-md-6">
-            @include('pulsar::includes.html.form_select_group', ['labelSize' => 4, 'fieldSize' => 8, 'id' => 'gender', 'label' => trans('pulsar::pulsar.gender'), 'name' => 'gender', 'value' => $object->gender_301, 'objects' => $genres, 'idSelect' => 'id', 'nameSelect' => 'name', 'class' => 'select2', 'data' => ['language' => config('app.locale'), 'width' => '100%', 'error-placement' => 'select2-gender-outer-container']])
+            @include('pulsar::includes.html.form_select_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans('pulsar::pulsar.gender'), 'name' => 'gender', 'value' => $object->gender_301, 'objects' => $genres, 'idSelect' => 'id', 'nameSelect' => 'name'])
+            @include('pulsar::includes.html.form_select_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans_choice('pulsar::pulsar.state', 1), 'name' => 'state', 'value' => $object->state_301, 'objects' => $states, 'idSelect' => 'id', 'nameSelect' => 'name'])
+        </div>
+        <div class="col-md-6">
+            @include('pulsar::includes.html.form_select_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans_choice('pulsar::pulsar.treatment', 1), 'name' => 'treatment', 'value' => $object->treatment_301, 'objects' => $treatments, 'idSelect' => 'id', 'nameSelect' => 'name'])
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
             @include('pulsar::includes.html.form_text_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans('pulsar::pulsar.email'), 'name' => 'email', 'value' => $object->email_301, 'maxLength' => '50', 'rangeLength' => '2,50', 'type' => 'email', 'required' => true])
             @include('pulsar::includes.html.form_text_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans('pulsar::pulsar.mobile'), 'name' => 'mobile', 'value' => $object->mobile_301, 'maxLength' => '50', 'rangeLength' => '2,50'])
         </div>
