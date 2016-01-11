@@ -15,7 +15,7 @@ use Sofa\Eloquence\Mappable;
  * Model with properties
  * <br><b>[id, name]</b>
  *
- * @package     Syscover\Market\Models
+ * @package     Syscover\Crm\Models
  */
 
 class Customer extends Model implements AuthenticatableContract, CanResetPasswordContract
