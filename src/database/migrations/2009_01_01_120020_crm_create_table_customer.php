@@ -46,8 +46,8 @@ class CrmCreateTableCustomer extends Migration {
                 $table->string('territorial_area_2_301', 10)->nullable();
                 $table->string('territorial_area_3_301', 10)->nullable();
                 $table->string('cp_301', 10)->nullable();
-                $table->string('locality_301', 100)->nullable();
-                $table->string('address_301', 150)->nullable();
+                $table->string('locality_301')->nullable();
+                $table->string('address_301')->nullable();
                 $table->string('latitude_301', 50)->nullable();
                 $table->string('longitude_301', 50)->nullable();
 
