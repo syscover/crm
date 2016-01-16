@@ -175,6 +175,7 @@
 @section('box_tab1')
         <!-- crm::customers.create -->
         @include('pulsar::includes.html.form_text_group', ['label' => 'ID', 'fieldSize' => 2, 'name' => 'id',  'value' => Input::old('id'), 'readOnly' => true])
+        @include('pulsar::includes.html.form_select_group', ['fieldSize' => 4, 'label' => trans_choice('pulsar::pulsar.language', 1), 'fileSize' => 5, 'name' => 'lang', 'value' => Input::old('lang'), 'required' => true, 'objects' => $langs, 'idSelect' => 'id_001', 'nameSelect' => 'name_001'])
         <div class="row">
             <div class="col-md-6">
                 @include('pulsar::includes.html.form_select_group', ['labelSize' => 4, 'fieldSize' => 8, 'id' => 'group', 'label' => trans_choice('pulsar::pulsar.group', 1), 'name' => 'group', 'value' => Input::old('group'), 'objects' => $groups, 'idSelect' => 'id_300', 'nameSelect' => 'name_300', 'class' => 'select2', 'data' => ['language' => config('app.locale'), 'width' => '100%', 'error-placement' => 'select2-group-outer-container']])

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Hash;
 use Syscover\Pulsar\Controllers\Controller;
+use Syscover\Pulsar\Models\Lang;
 use Syscover\Pulsar\Traits\TraitController;
 use Syscover\Crm\Models\Customer;
 use Syscover\Crm\Models\Group;
@@ -41,6 +42,8 @@ class CustomerController extends Controller {
 
     public function createCustomRecord($request, $parameters)
     {
+        $parameters['langs']        = Lang::all();
+
         $parameters['groups']       = Group::all();
 
         $parameters['genres']       = array_map(function($object) {
@@ -64,6 +67,7 @@ class CustomerController extends Controller {
     public function storeCustomRecord($request, $parameters)
     {
         Customer::create([
+            'lang_301'                  => $request->input('lang'),
             'group_301'                 => $request->input('group'),
             'date_301'                  => $request->has('date')? \DateTime::createFromFormat(config('pulsar.datePattern'), $request->input('date'))->getTimestamp() : null,
             'company_301'               => empty($request->input('company'))? null : $request->input('company'),
@@ -96,6 +100,8 @@ class CustomerController extends Controller {
 
     public function editCustomRecord($request, $parameters)
     {
+        $parameters['langs']        = Lang::all();
+
         $parameters['groups']       = Group::all();
 
         $parameters['genres']       = array_map(function($object){
@@ -119,6 +125,7 @@ class CustomerController extends Controller {
     public function updateCustomRecord($request, $parameters)
     {
         Customer::where('id_301', $parameters['id'])->update([
+            'lang_301'                  => $request->input('lang'),
             'group_301'                 => $request->input('group'),
             'date_301'                  => $request->has('date')? \DateTime::createFromFormat(config('pulsar.datePattern'), $request->input('date'))->getTimestamp() : null,
             'company_301'               => empty($request->input('company'))? null : $request->input('company'),

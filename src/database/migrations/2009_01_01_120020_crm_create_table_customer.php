@@ -18,6 +18,7 @@ class CrmCreateTableCustomer extends Migration {
                 $table->engine = 'InnoDB';
 
                 $table->increments('id_301')->unsigned();
+                $table->string('lang_301', 2);
                 $table->string('remember_token_301', 100)->nullable();
                 $table->integer('group_301')->unsigned();
                 $table->integer('date_301');
@@ -64,6 +65,8 @@ class CrmCreateTableCustomer extends Migration {
                 $table->foreign('territorial_area_2_301', 'fk04_012_301_customer')->references('id_004')->on('001_004_territorial_area_2')
                     ->onDelete('restrict')->onUpdate('cascade');
                 $table->foreign('territorial_area_3_301', 'fk05_012_301_customer')->references('id_005')->on('001_005_territorial_area_3')
+                    ->onDelete('restrict')->onUpdate('cascade');
+                $table->foreign('lang_301', 'fk06_012_301_customer')->references('id_001')->on('001_001_lang')
                     ->onDelete('restrict')->onUpdate('cascade');
 
 
