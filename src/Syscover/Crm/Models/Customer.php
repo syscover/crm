@@ -13,7 +13,7 @@ use Sofa\Eloquence\Mappable;
  * Class Group
  *
  * Model with properties
- * <br><b>[id, group, date, company, tin, gender, treatment, state, name, surname, avatar, birth_date, email, phone, mobile, user, password, active, confirmed, country, territorial_area_1, territorial_area_2, territorial_area_3, cp, locality, address, latitude, longitude, custom_field_group, data]</b>
+ * <br><b>[id, lang, group, date, company, tin, gender, treatment, state, name, surname, avatar, birth_date, email, phone, mobile, user, password, active, confirmed, country, territorial_area_1, territorial_area_2, territorial_area_3, cp, locality, address, latitude, longitude, custom_field_group, data]</b>
  *
  * @package     Syscover\Crm\Models
  */
@@ -28,11 +28,14 @@ class Customer extends Model implements AuthenticatableContract, CanResetPasswor
     protected $primaryKey   = 'id_301';
     protected $suffix       = '301';
     public $timestamps      = false;
-    protected $fillable     = ['id_301', 'group_301', 'date_301', 'company_301', 'tin_301', 'gender_301', 'treatment_301', 'state_301', 'name_301', 'surname_301', 'avatar_301', 'birth_date_301', 'email_301', 'phone_301', 'mobile_301', 'user_301', 'password_301', 'active_301', 'confirmed_301', 'country_301', 'territorial_area_1_301', 'territorial_area_2_301', 'territorial_area_3_301', 'cp_301', 'locality_301', 'address_301', 'latitude_301', 'longitude_301', 'custom_field_group_301', 'data_301'];
-    protected $maps         = [];
+    protected $fillable     = ['id_301', 'lang_301', 'group_301', 'date_301', 'company_301', 'tin_301', 'gender_301', 'treatment_301', 'state_301', 'name_301', 'surname_301', 'avatar_301', 'birth_date_301', 'email_301', 'phone_301', 'mobile_301', 'user_301', 'password_301', 'active_301', 'confirmed_301', 'country_301', 'territorial_area_1_301', 'territorial_area_2_301', 'territorial_area_3_301', 'cp_301', 'locality_301', 'address_301', 'latitude_301', 'longitude_301', 'custom_field_group_301', 'data_301'];
+    protected $maps         = [
+        'lang'      => \Syscover\Pulsar\Models\Lang::class,
+    ];
     protected $relationMaps = [];
     private static $rules   = [
-        'name'  => 'required|between:2,50'
+        'name'  => 'required|between:2,50',
+        'lang'  => 'required'
     ];
 
     public static function validate($data)
@@ -42,7 +45,18 @@ class Customer extends Model implements AuthenticatableContract, CanResetPasswor
 
     public function scopeBuilder($query)
     {
-        return $query->join('009_300_group', '009_301_customer.group_301', '=', '009_300_group.id_300');
+        return $query->join('001_001_lang', '009_301_customer.lang_301', '=', '001_001_lang.id_001')
+            ->join('009_300_group', '009_301_customer.group_301', '=', '009_300_group.id_300');
+    }
+
+    /**
+     * Get Lang from user
+     *
+     * @return \Syscover\Pulsar\Models\Lang
+     */
+    public function getLang()
+    {
+        return $this->belongsTo('Syscover\Pulsar\Models\Lang', 'lang_355');
     }
 
     /**
