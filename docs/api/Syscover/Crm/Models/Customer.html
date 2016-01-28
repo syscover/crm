@@ -83,7 +83,7 @@
 
             <div class="description">
             <p>Class Group</p>            <p>Model with properties
-<br><b>[id, name]</b></p>        </div>
+<br><b>[id, lang, group, date, company, tin, gender, treatment, state, name, surname, avatar, birth<em>date, email, phone, mobile, user, password, active, confirmed, country, territorial</em>area<em>1, territorial</em>area<em>2, territorial</em>area<em>3, cp, locality, address, latitude, longitude, custom</em>field_group, data]</b></p>        </div>
     
             <h2>Traits</h2>
 
@@ -167,6 +167,16 @@
                     <a href="#method_scopeBuilder">scopeBuilder</a>($query)
                                             <p class="no-description">No description</p>
                                     </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="Syscover\Pulsar\Models\Lang">Lang</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getLang">getLang</a>()
+                                            <p>Get Lang from user</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -258,7 +268,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_validate">
-        <div class="location">at line 38</div>
+        <div class="location">at line 41</div>
         <code>        static            
     
     <strong>validate</strong>($data)</code>
@@ -285,7 +295,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_scopeBuilder">
-        <div class="location">at line 43</div>
+        <div class="location">at line 46</div>
         <code>                    
     
     <strong>scopeBuilder</strong>($query)</code>
@@ -311,8 +321,37 @@
 
             </div>
                     <div class="method-item">
+                    <h3 id="method_getLang">
+        <div class="location">at line 57</div>
+        <code>                    
+    <abbr title="Syscover\Pulsar\Models\Lang">Lang</abbr>
+    <strong>getLang</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Get Lang from user</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <abbr title="Syscover\Pulsar\Models\Lang">Lang</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method_getGroup">
-        <div class="location">at line 53</div>
+        <div class="location">at line 67</div>
         <code>                    
     <a href="../../../Syscover/Crm/Models/Group.html"><abbr title="Syscover\Crm\Models\Group">Group</abbr></a>
     <strong>getGroup</strong>()</code>
@@ -341,7 +380,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getAuthIdentifier">
-        <div class="location">at line 68</div>
+        <div class="location">at line 82</div>
         <code>                    
     mixed
     <strong>getAuthIdentifier</strong>()</code>
@@ -370,7 +409,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getAuthPassword">
-        <div class="location">at line 78</div>
+        <div class="location">at line 92</div>
         <code>                    
     string
     <strong>getAuthPassword</strong>()</code>
@@ -399,7 +438,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getRememberToken">
-        <div class="location">at line 88</div>
+        <div class="location">at line 102</div>
         <code>                    
     string
     <strong>getRememberToken</strong>()</code>
@@ -428,7 +467,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_setRememberToken">
-        <div class="location">at line 99</div>
+        <div class="location">at line 113</div>
         <code>                    
     void
     <strong>setRememberToken</strong>(
@@ -470,7 +509,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getRememberTokenName">
-        <div class="location">at line 109</div>
+        <div class="location">at line 123</div>
         <code>                    
     string
     <strong>getRememberTokenName</strong>()</code>
@@ -499,7 +538,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getEmailForPasswordReset">
-        <div class="location">at line 119</div>
+        <div class="location">at line 133</div>
         <code>                    
     string
     <strong>getEmailForPasswordReset</strong>()</code>
@@ -528,7 +567,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getAuthIdentifierName">
-        <div class="location">at line 129</div>
+        <div class="location">at line 143</div>
         <code>                    
     string
     <strong>getAuthIdentifierName</strong>()</code>
