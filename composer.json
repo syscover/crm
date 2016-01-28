@@ -1,6 +1,6 @@
 {
     "name": "syscover/crm",
-    "version": "2.0.0",
+    "version": "5.2",
     "description": "CRM package",
     "keywords": ["syscover","pulsar","laravel","CRM"],
     "license": "MIT",
@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0"
+        "php": ">=5.5.9"
     },
     "autoload": {
         "psr-4": {
