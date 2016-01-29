@@ -91,10 +91,10 @@
                 useSeparatorHighlight:      true,
                 textSeparatorHighlight:     '------------------',
 
-                countryValue:               '{{ Input::old('country') }}',
-                territorialArea1Value:      '{{ Input::old('territorialArea1') }}',
-                territorialArea2Value:      '{{ Input::old('territorialArea2') }}',
-                territorialArea3Value:      '{{ Input::old('territorialArea3') }}'
+                countryValue:               '{{ old('country') }}',
+                territorialArea1Value:      '{{ old('territorialArea1') }}',
+                territorialArea2Value:      '{{ old('territorialArea2') }}',
+                territorialArea3Value:      '{{ old('territorialArea3') }}'
             });
 
             $.getAddress({
@@ -119,10 +119,10 @@
                 tA2Select:                  'billingTerritorialArea2',
                 tA3Select:                  'billingTerritorialArea3',
 
-                countryValue:               '{{ Input::old('billingCountry') }}',
-                territorialArea1Value:      '{{ Input::old('billingTerritorialArea1') }}',
-                territorialArea2Value:      '{{ Input::old('billingTerritorialArea2') }}',
-                territorialArea3Value:      '{{ Input::old('billingTerritorialArea3') }}'
+                countryValue:               '{{ old('billingCountry') }}',
+                territorialArea1Value:      '{{ old('billingTerritorialArea1') }}',
+                territorialArea2Value:      '{{ old('billingTerritorialArea2') }}',
+                territorialArea3Value:      '{{ old('billingTerritorialArea3') }}'
             });
 
             $.mapPoint({
@@ -174,65 +174,65 @@
 
 @section('box_tab1')
         <!-- crm::customers.create -->
-        @include('pulsar::includes.html.form_text_group', ['label' => 'ID', 'fieldSize' => 2, 'name' => 'id',  'value' => Input::old('id'), 'readOnly' => true])
-        @include('pulsar::includes.html.form_select_group', ['fieldSize' => 4, 'label' => trans_choice('pulsar::pulsar.language', 1), 'fileSize' => 5, 'name' => 'lang', 'value' => Input::old('lang'), 'required' => true, 'objects' => $langs, 'idSelect' => 'id_001', 'nameSelect' => 'name_001'])
+        @include('pulsar::includes.html.form_text_group', ['label' => 'ID', 'fieldSize' => 2, 'name' => 'id',  'value' => old('id'), 'readOnly' => true])
+        @include('pulsar::includes.html.form_select_group', ['fieldSize' => 4, 'label' => trans_choice('pulsar::pulsar.language', 1), 'fileSize' => 5, 'name' => 'lang', 'value' => old('lang'), 'required' => true, 'objects' => $langs, 'idSelect' => 'id_001', 'nameSelect' => 'name_001'])
         <div class="row">
             <div class="col-md-6">
-                @include('pulsar::includes.html.form_select_group', ['labelSize' => 4, 'fieldSize' => 8, 'id' => 'group', 'label' => trans_choice('pulsar::pulsar.group', 1), 'name' => 'group', 'value' => Input::old('group'), 'objects' => $groups, 'idSelect' => 'id_300', 'nameSelect' => 'name_300', 'class' => 'select2', 'data' => ['language' => config('app.locale'), 'width' => '100%', 'error-placement' => 'select2-group-outer-container']])
+                @include('pulsar::includes.html.form_select_group', ['labelSize' => 4, 'fieldSize' => 8, 'id' => 'group', 'label' => trans_choice('pulsar::pulsar.group', 1), 'name' => 'group', 'value' => old('group'), 'objects' => $groups, 'idSelect' => 'id_300', 'nameSelect' => 'name_300', 'class' => 'select2', 'data' => ['language' => config('app.locale'), 'width' => '100%', 'error-placement' => 'select2-group-outer-container']])
             </div>
             <div class="col-md-6">
-                @include('pulsar::includes.html.form_datetimepicker_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans('pulsar::pulsar.date'), 'containerId' => 'dateContent', 'name' => 'date', 'id' => 'idDate', 'value' => Input::old('date', date(config('pulsar.datePattern'))), 'required' => true, 'data' => ['format' => Miscellaneous::convertFormatDate(config('pulsar.datePattern')), 'locale' => config('app.locale')]])
+                @include('pulsar::includes.html.form_datetimepicker_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans('pulsar::pulsar.date'), 'containerId' => 'dateContent', 'name' => 'date', 'id' => 'idDate', 'value' => old('date', date(config('pulsar.datePattern'))), 'required' => true, 'data' => ['format' => Miscellaneous::convertFormatDate(config('pulsar.datePattern')), 'locale' => config('app.locale')]])
             </div>
         </div>
-        @include('pulsar::includes.html.form_text_group', ['label' => trans_choice('pulsar::pulsar.company', 1), 'name' => 'company', 'value' => Input::old('company'), 'maxLength' => '255', 'rangeLength' => '2,255'])
-        @include('pulsar::includes.html.form_text_group', ['fieldSize' => 5, 'label' => trans('pulsar::pulsar.tin'), 'name' => 'tin', 'value' => Input::old('tin'), 'maxLength' => '255', 'rangeLength' => '2,255'])
+        @include('pulsar::includes.html.form_text_group', ['label' => trans_choice('pulsar::pulsar.company', 1), 'name' => 'company', 'value' => old('company'), 'maxLength' => '255', 'rangeLength' => '2,255'])
+        @include('pulsar::includes.html.form_text_group', ['fieldSize' => 5, 'label' => trans('pulsar::pulsar.tin'), 'name' => 'tin', 'value' => old('tin'), 'maxLength' => '255', 'rangeLength' => '2,255'])
 
-        @include('pulsar::includes.html.form_text_group', ['label' => trans('pulsar::pulsar.name'), 'name' => 'name', 'value' => Input::old('name'), 'maxLength' => '50', 'rangeLength' => '2,50'])
-        @include('pulsar::includes.html.form_text_group', ['label' => trans('pulsar::pulsar.surname'), 'name' => 'surname', 'value' => Input::old('surname'), 'maxLength' => '50', 'rangeLength' => '2,50'])
+        @include('pulsar::includes.html.form_text_group', ['label' => trans('pulsar::pulsar.name'), 'name' => 'name', 'value' => old('name'), 'maxLength' => '50', 'rangeLength' => '2,50'])
+        @include('pulsar::includes.html.form_text_group', ['label' => trans('pulsar::pulsar.surname'), 'name' => 'surname', 'value' => old('surname'), 'maxLength' => '50', 'rangeLength' => '2,50'])
         <div class="row">
             <div class="col-md-6">
-                @include('pulsar::includes.html.form_select_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans('pulsar::pulsar.gender'), 'name' => 'gender', 'value' => Input::old('gender'), 'objects' => $genres, 'idSelect' => 'id', 'nameSelect' => 'name'])
-                @include('pulsar::includes.html.form_select_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans_choice('pulsar::pulsar.state', 1), 'name' => 'state', 'value' => Input::old('state'), 'objects' => $states, 'idSelect' => 'id', 'nameSelect' => 'name'])
+                @include('pulsar::includes.html.form_select_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans('pulsar::pulsar.gender'), 'name' => 'gender', 'value' => old('gender'), 'objects' => $genres, 'idSelect' => 'id', 'nameSelect' => 'name'])
+                @include('pulsar::includes.html.form_select_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans_choice('pulsar::pulsar.state', 1), 'name' => 'state', 'value' => old('state'), 'objects' => $states, 'idSelect' => 'id', 'nameSelect' => 'name'])
             </div>
             <div class="col-md-6">
-                @include('pulsar::includes.html.form_select_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans_choice('pulsar::pulsar.treatment', 1), 'name' => 'treatment', 'value' => Input::old('treatment'), 'objects' => $treatments, 'idSelect' => 'id', 'nameSelect' => 'name'])
+                @include('pulsar::includes.html.form_select_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans_choice('pulsar::pulsar.treatment', 1), 'name' => 'treatment', 'value' => old('treatment'), 'objects' => $treatments, 'idSelect' => 'id', 'nameSelect' => 'name'])
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
-                @include('pulsar::includes.html.form_text_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans('pulsar::pulsar.email'), 'name' => 'email', 'value' => Input::old('email'), 'maxLength' => '50', 'rangeLength' => '2,50', 'type' => 'email', 'required' => true])
-                @include('pulsar::includes.html.form_text_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans('pulsar::pulsar.mobile'), 'name' => 'mobile', 'value' => Input::old('mobile'), 'maxLength' => '50', 'rangeLength' => '2,50'])
+                @include('pulsar::includes.html.form_text_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans('pulsar::pulsar.email'), 'name' => 'email', 'value' => old('email'), 'maxLength' => '50', 'rangeLength' => '2,50', 'type' => 'email', 'required' => true])
+                @include('pulsar::includes.html.form_text_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans('pulsar::pulsar.mobile'), 'name' => 'mobile', 'value' => old('mobile'), 'maxLength' => '50', 'rangeLength' => '2,50'])
             </div>
             <div class="col-md-6">
-                @include('pulsar::includes.html.form_datetimepicker_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans('pulsar::pulsar.birth_date'), 'containerId' => 'birthDateContent', 'name' => 'birthDate', 'id' => 'idBirthDate', 'value' => Input::old('birthDate', date(config('pulsar.datePattern'))), 'data' => ['format' => Miscellaneous::convertFormatDate(config('pulsar.datePattern')), 'locale' => config('app.locale')]])
-                @include('pulsar::includes.html.form_text_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans_choice('pulsar::pulsar.phone', 1), 'name' => 'phone', 'value' => Input::old('phone'), 'maxLength' => '50', 'rangeLength' => '2,50'])
+                @include('pulsar::includes.html.form_datetimepicker_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans('pulsar::pulsar.birth_date'), 'containerId' => 'birthDateContent', 'name' => 'birthDate', 'id' => 'idBirthDate', 'value' => old('birthDate', date(config('pulsar.datePattern'))), 'data' => ['format' => Miscellaneous::convertFormatDate(config('pulsar.datePattern')), 'locale' => config('app.locale')]])
+                @include('pulsar::includes.html.form_text_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans_choice('pulsar::pulsar.phone', 1), 'name' => 'phone', 'value' => old('phone'), 'maxLength' => '50', 'rangeLength' => '2,50'])
             </div>
         </div>
 
         @include('pulsar::includes.html.form_section_header', ['label' => trans('pulsar::pulsar.access'), 'icon' => 'fa fa-check-circle-o'])
         <div class="row">
             <div class="col-md-6">
-                @include('pulsar::includes.html.form_text_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans_choice('pulsar::pulsar.user', 1), 'name' => 'user', 'value' => Input::old('user'), 'maxLength' => '50', 'rangeLength' => '2,50', 'required' => true])
-                @include('pulsar::includes.html.form_text_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans('pulsar::pulsar.password'), 'type' => 'password' ,'name' => 'password', 'value' => Input::old('password'), 'maxLength' => '50', 'rangeLength' => '4,50', 'fieldSize' => 8, 'required' => true])
-                @include('pulsar::includes.html.form_text_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans('pulsar::pulsar.repeat_password'), 'type' => 'password' , 'name' => 'repassword', 'value' => Input::old('repassword'), 'maxLength' => '50', 'rangeLength' => '4,50', 'fieldSize' => 8, 'required' => true])
+                @include('pulsar::includes.html.form_text_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans_choice('pulsar::pulsar.user', 1), 'name' => 'user', 'value' => old('user'), 'maxLength' => '50', 'rangeLength' => '2,50', 'required' => true])
+                @include('pulsar::includes.html.form_text_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans('pulsar::pulsar.password'), 'type' => 'password' ,'name' => 'password', 'value' => old('password'), 'maxLength' => '50', 'rangeLength' => '4,50', 'fieldSize' => 8, 'required' => true])
+                @include('pulsar::includes.html.form_text_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans('pulsar::pulsar.repeat_password'), 'type' => 'password' , 'name' => 'repassword', 'value' => old('repassword'), 'maxLength' => '50', 'rangeLength' => '4,50', 'fieldSize' => 8, 'required' => true])
             </div>
             <div class="col-md-6">
-                @include('pulsar::includes.html.form_checkbox_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans('pulsar::pulsar.active'), 'name' => 'active', 'value' => 1, 'checked' => Input::old('active')])
+                @include('pulsar::includes.html.form_checkbox_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans('pulsar::pulsar.active'), 'name' => 'active', 'value' => 1, 'checked' => old('active')])
             </div>
         </div>
 
         @include('pulsar::includes.html.form_section_header', ['label' => trans_choice('pulsar::pulsar.geolocation', 1), 'icon' => 'fa fa-map-signs'])
-        @include('pulsar::includes.html.form_text_group', ['label' => trans_choice('pulsar::pulsar.address', 1), 'name' => 'address', 'value' => Input::old('address'), 'maxLength' => '150', 'rangeLength' => '2,150'])
+        @include('pulsar::includes.html.form_text_group', ['label' => trans_choice('pulsar::pulsar.address', 1), 'name' => 'address', 'value' => old('address'), 'maxLength' => '150', 'rangeLength' => '2,150'])
         <div class="row">
             <div class="col-md-6">
                 @include('pulsar::includes.html.form_select_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans_choice('pulsar::pulsar.country', 1), 'id' => 'country', 'name' => 'country', 'idSelect' => 'id_002', 'nameSelect' => 'name_002', 'class' => 'col-md-12 select2', 'style' => 'width:100%', 'data' => ['language' => config('app.locale'), 'error-placement' => 'select2-country-outer-container']])
                 @include('pulsar::includes.html.form_select_group', ['labelSize' => 4, 'fieldSize' => 8, 'containerId' => 'territorialArea1Wrapper', 'labelId' => 'territorialArea1Label', 'name' => 'territorialArea1', 'class' => 'col-md-12 select2', 'style' => 'width:100%', 'data' => ['language' => config('app.locale')]])
                 @include('pulsar::includes.html.form_select_group', ['labelSize' => 4, 'fieldSize' => 8, 'containerId' => 'territorialArea2Wrapper', 'labelId' => 'territorialArea2Label', 'name' => 'territorialArea2', 'class' => 'col-md-12 select2', 'style' => 'width:100%', 'data' => ['language' => config('app.locale')]])
                 @include('pulsar::includes.html.form_select_group', ['labelSize' => 4, 'fieldSize' => 8, 'containerId' => 'territorialArea3Wrapper', 'labelId' => 'territorialArea3Label', 'name' => 'territorialArea3', 'class' => 'col-md-12 select2', 'style' => 'width:100%', 'data' => ['language' => config('app.locale')]])
-                @include('pulsar::includes.html.form_text_group', ['labelSize' => 4, 'fieldSize' => 4, 'label' => trans('pulsar::pulsar.cp'), 'name' => 'cp', 'value' => Input::old('cp'), 'maxLength' => '10', 'rangeLength' => '2,10'])
-                @include('pulsar::includes.html.form_text_group', ['labelSize' => 4, 'fieldSize' => 6, 'label' => trans('pulsar::pulsar.locality'), 'name' => 'locality', 'value' => Input::old('locality'), 'maxLength' => '100', 'rangeLength' => '2,100'])
-                @include('pulsar::includes.html.form_text_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans('pulsar::pulsar.latitude'), 'name' => 'latitude', 'value' => Input::old('latitude'), 'maxLength' => '100', 'rangeLength' => '2,100'])
-                @include('pulsar::includes.html.form_text_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans('pulsar::pulsar.longitude'), 'name' => 'longitude', 'value' => Input::old('longitude'), 'maxLength' => '100', 'rangeLength' => '2,100'])
+                @include('pulsar::includes.html.form_text_group', ['labelSize' => 4, 'fieldSize' => 4, 'label' => trans('pulsar::pulsar.cp'), 'name' => 'cp', 'value' => old('cp'), 'maxLength' => '10', 'rangeLength' => '2,10'])
+                @include('pulsar::includes.html.form_text_group', ['labelSize' => 4, 'fieldSize' => 6, 'label' => trans('pulsar::pulsar.locality'), 'name' => 'locality', 'value' => old('locality'), 'maxLength' => '100', 'rangeLength' => '2,100'])
+                @include('pulsar::includes.html.form_text_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans('pulsar::pulsar.latitude'), 'name' => 'latitude', 'value' => old('latitude'), 'maxLength' => '100', 'rangeLength' => '2,100'])
+                @include('pulsar::includes.html.form_text_group', ['labelSize' => 4, 'fieldSize' => 8, 'label' => trans('pulsar::pulsar.longitude'), 'name' => 'longitude', 'value' => old('longitude'), 'maxLength' => '100', 'rangeLength' => '2,100'])
             </div>
             <div class="col-md-6">
                 <div id="locationMapWrapper"></div>
