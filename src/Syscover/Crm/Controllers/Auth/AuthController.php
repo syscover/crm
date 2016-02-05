@@ -4,8 +4,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-use Pulsar\Support\Facades\Config;
-use Syscover\Pulsar\Libraries\AclLibrary;
 
 class AuthController extends Controller
 {
@@ -31,7 +29,7 @@ class AuthController extends Controller
     protected $redirectTo;
 
     /**
-     * Login route
+     * Route when login is successful
      *
      * @var string
      */
@@ -57,9 +55,9 @@ class AuthController extends Controller
 	 */
 	public function __construct()
 	{
-        $this->redirectTo   = route('dashboard');
-        $this->loginPath    = route('getLogin');
-        $this->logoutPath   = route('getLogin');
+        $this->redirectTo   = null;
+        $this->loginPath    = null;
+        $this->logoutPath   = null;
 	}
 
     /**
