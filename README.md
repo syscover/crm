@@ -64,4 +64,10 @@ Inside passwords array
 ],
 ```
 
-you can change email crmPasswordBroker, to custom appearance
+you can change email crmPasswordBroker, to custom appearance.
+
+**7 - How get auth properties**
+Use crm guard to get auth properties
+```
+auth('crm')
+```
