@@ -35,3 +35,33 @@ php artisan db:seed --class="CrmTableSeeder"
 **5 - Activate package**
 
 Access to Pulsar Panel, and go to Administration -> Permissions -> Profiles, and set all permissions to your profile by clicking on the open lock.
+
+**6 - to use auth properties, include this arrays in config/auth.php**
+
+Inside guards array
+```
+'crm' => [
+    'driver'    => 'session',
+    'provider'  => 'crmCustomer',
+],
+```
+
+Inside providers array
+```
+'crmCustomer' => [
+    'driver'    => 'eloquent',
+    'model'     => Syscover\Crm\Models\Customer::class,
+],
+```
+
+Inside passwords array
+```
+'crmPasswordBroker' => [
+    'provider'  => 'crmCustomer',
+    'email'     => 'pulsar::emails.password',
+    'table'     => '001_021_password_resets',
+    'expire'    => 60,
+],
+```
+
+you can change email crmPasswordBroker, to custom appearance
