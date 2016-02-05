@@ -1,4 +1,4 @@
-# CRM to Laravel 5.1
+# CRM to Laravel 5.2
 
 ## Installation
 
