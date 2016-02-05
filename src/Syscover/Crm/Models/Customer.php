@@ -1,16 +1,13 @@
 <?php namespace Syscover\Crm\Models;
 
-use Illuminate\Auth\Passwords\CanResetPassword;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
-use Syscover\Pulsar\Models\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Validator;
 use Syscover\Pulsar\Traits\TraitModel;
 use Sofa\Eloquence\Eloquence;
 use Sofa\Eloquence\Mappable;
 
 /**
- * Class Group
+ * Class Customer
  *
  * Model with properties
  * <br><b>[id, lang, group, date, company, tin, gender, treatment, state, name, surname, avatar, birth_date, email, phone, mobile, user, password, active, confirmed, country, territorial_area_1, territorial_area_2, territorial_area_3, cp, locality, address, latitude, longitude, custom_field_group, data]</b>
@@ -18,11 +15,10 @@ use Sofa\Eloquence\Mappable;
  * @package     Syscover\Crm\Models
  */
 
-class Customer extends Model implements AuthenticatableContract, CanResetPasswordContract
+class Customer extends Authenticatable
 {
     use TraitModel;
     use Eloquence, Mappable;
-    use CanResetPassword;
 
 	protected $table        = '009_301_customer';
     protected $primaryKey   = 'id_301';
