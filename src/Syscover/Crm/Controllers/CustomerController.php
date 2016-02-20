@@ -21,7 +21,7 @@ class CustomerController extends Controller {
     protected $package      = 'crm';
     protected $aColumns     = ['id_301', 'name_301', 'surname_301', ['data' => 'email_301', 'type' => 'email'], 'name_300', ['data' => 'active_301', 'type' => 'active'], ['data' => 'confirmed_301', 'type' => 'active']];
     protected $nameM        = 'name_300';
-    protected $model        = \Syscover\Crm\Models\Customer::class;
+    protected $model        = Customer::class;
     protected $icon         = 'fa fa-user';
     protected $objectTrans  = 'customer';
 
