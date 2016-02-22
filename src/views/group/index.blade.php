@@ -1,6 +1,6 @@
 @extends('pulsar::layouts.index', ['newTrans' => 'new'])
 
-@section('script')
+@section('head')
     @parent
     <!-- crm::groups.index -->
     <script type="text/javascript">
