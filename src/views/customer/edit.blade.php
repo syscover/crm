@@ -1,6 +1,6 @@
 @extends('pulsar::layouts.tab', ['tabs' => [
         ['id' => 'box_tab1', 'name' => trans_choice('pulsar::pulsar.customer', 1)],
-        ['id' => 'box_tab2', 'name' => 'default'],
+        ['id' => 'box_tab2', 'name' => trans_choice('pulsar::pulsar.attachment', 2)],
         ['id' => 'box_tab3', 'name' => 'default'],
         ['id' => 'box_tab4', 'name' => 'default'],
         ['id' => 'box_tab5', 'name' => 'default'],
@@ -30,6 +30,15 @@
     <script src="https://maps.googleapis.com/maps/api/js?key={{ config('api.googleMapsApiKey') }}&libraries=places"></script>
 
     @include('pulsar::includes.html.froala_references')
+
+    <script src="{{ asset('packages/syscover/pulsar/vendor/attachment/js/attachment-library.js') }}"></script>
+    @include('pulsar::includes.js.attachment', [
+        'action'            => 'edit',
+        'resource'          => 'crm-customer',
+        'routesConfigFile'  => 'crm',
+        'lang'              => session('baseLang'),
+        'objectId'          => $object->id_301])
+
     <script type="text/javascript">
         $(document).ready(function() {
             $.getAddress({
@@ -167,16 +176,29 @@
 @stop
 
 @section('box_tab2')
-@stop
-
-@section('box_tab3')
-@stop
-
-@section('box_tab4')
-@stop
-
-@section('box_tab5')
+    @include('pulsar::includes.html.attachment', [
+        'action'            => 'edit',
+        'routesConfigFile'  => 'crm'])
 @stop
 
 @section('endBody')
+        <!--TODO: Implementar botón para añadir fotografías desde la librería-->
+    <div id="attachment-library-mask">
+        <div id="attachment-library-content">
+            {{ trans('pulsar::pulsar.drag_files') }}
+        </div>
+    </div>
+    <div id="attachment-library-progress-bar">
+        <div class="valign-wrapper">
+            <div class="container valign">
+                <div class="row">
+                    <div class="col-md-offset-1 col-md-10">
+                        <div class="progress">
+                            <div id="upload-progress-bar" class="progress-bar progress-bar-success"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @stop

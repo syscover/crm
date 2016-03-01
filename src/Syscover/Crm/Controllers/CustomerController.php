@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Hash;
 use Syscover\Pulsar\Controllers\Controller;
+use Syscover\Pulsar\Models\AttachmentFamily;
+use Syscover\Pulsar\Libraries\AttachmentLibrary;
 use Syscover\Pulsar\Models\Lang;
 use Syscover\Pulsar\Traits\TraitController;
 use Syscover\Crm\Models\Customer;
@@ -61,12 +63,24 @@ class CustomerController extends Controller {
             return $object;
         }, config('pulsar.states'));
 
+        $parameters['attachmentFamilies']   = AttachmentFamily::getAttachmentFamilies(['resource_015' => 'cms-article']);
+        $parameters['attachmentsInput']     = json_encode([]);
+
+        if(isset($parameters['id']))
+        {
+            // get attachments from base lang
+            $attachments = AttachmentLibrary::getRecords($this->package, 'cms-article', $parameters['id'], session('baseLang')->id_001, true);
+
+            // merge parameters and attachments array
+            $parameters  = array_merge($parameters, $attachments);
+        }
+
         return $parameters;
     }
 
     public function storeCustomRecord($request, $parameters)
     {
-        Customer::create([
+        $customer = Customer::create([
             'lang_301'                  => $request->input('lang'),
             'group_301'                 => $request->input('group'),
             'date_301'                  => $request->has('date')? \DateTime::createFromFormat(config('pulsar.datePattern'), $request->input('date'))->getTimestamp() : null,
@@ -96,6 +110,10 @@ class CustomerController extends Controller {
             'latitude_301'              => empty($request->input('latitude'))? null : $request->input('latitude'),
             'longitude_301'             => empty($request->input('longitude'))? null : $request->input('longitude'),
         ]);
+
+        // set attachments
+        $attachments = json_decode($request->input('attachments'));
+        AttachmentLibrary::storeAttachments($attachments, 'crm', 'crm-customer', $customer->id_301, base_lang()->id_001);
     }
 
     public function editCustomRecord($request, $parameters)
@@ -118,6 +136,13 @@ class CustomerController extends Controller {
             $object->name = trans($object->name);
             return $object;
         }, config('pulsar.states'));
+
+        // get attachments elements
+        $attachments = AttachmentLibrary::getRecords('crm', 'crm-customer', $parameters['object']->id_301, base_lang()->id_001);
+
+        // merge parameters and attachments array
+        $parameters['attachmentFamilies']   = AttachmentFamily::getAttachmentFamilies(['resource_015' => 'cms-article']);
+        $parameters                         = array_merge($parameters, $attachments);
 
         return $parameters;
     }

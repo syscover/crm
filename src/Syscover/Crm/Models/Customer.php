@@ -42,7 +42,7 @@ class Customer extends Authenticatable
     public function scopeBuilder($query)
     {
         return $query->join('001_001_lang', '009_301_customer.lang_301', '=', '001_001_lang.id_001')
-            ->join('009_300_group', '009_301_customer.group_301', '=', '009_300_group.id_300');
+            ->leftJoin('009_300_group', '009_301_customer.group_301', '=', '009_300_group.id_300');
     }
 
     /**
