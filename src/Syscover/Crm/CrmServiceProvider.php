@@ -12,33 +12,34 @@ class CrmServiceProvider extends ServiceProvider
 	public function boot()
 	{
 		// include route.php file
-		include realpath(__DIR__ . '/../../routes.php');
+		if (!$this->app->routesAreCached())
+			require __DIR__ . '/../../routes.php';
 
 		// register views
-		$this->loadViewsFrom(realpath(__DIR__ . '/../../views'), 'crm');
+		$this->loadViewsFrom(__DIR__ . '/../../views', 'crm');
 
         // register translations
-        $this->loadTranslationsFrom(realpath(__DIR__ . '/../../lang'), 'crm');
+        $this->loadTranslationsFrom(__DIR__ . '/../../lang', 'crm');
 
 		// register public files
 		$this->publishes([
-			realpath(__DIR__ . '/../../../public') => public_path('/packages/syscover/crm')
+			__DIR__ . '/../../../public' 					=> public_path('/packages/syscover/crm')
 		]);
 
 		// register config files
 		$this->publishes([
-			realpath(__DIR__ . '/../../config/crm.php') => config_path('crm.php')
+			__DIR__ . '/../../config/crm.php' 				=> config_path('crm.php')
 		]);
 
         // register migrations
         $this->publishes([
-            __DIR__.'/../../database/migrations/' => base_path('/database/migrations'),
-			__DIR__.'/../../database/migrations/updates/' => base_path('/database/migrations/updates'),
+            __DIR__ . '/../../database/migrations/' 		=> base_path('/database/migrations'),
+			__DIR__ . '/../../database/migrations/updates/' => base_path('/database/migrations/updates'),
         ], 'migrations');
 
         // register migrations
         $this->publishes([
-            __DIR__.'/../../database/seeds/' => base_path('/database/seeds')
+            __DIR__ . '/../../database/seeds/' 				=> base_path('/database/seeds')
         ], 'seeds');
 	}
 
@@ -51,5 +52,4 @@ class CrmServiceProvider extends ServiceProvider
 	{
         //
 	}
-
 }
