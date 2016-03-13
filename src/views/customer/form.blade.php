@@ -145,7 +145,7 @@
             @include('pulsar::includes.html.form_datetimepicker_group', [
                 'labelSize' => 4,
                 'fieldSize' => 8,
-                'label' => trans('pulsar::pulsar.date'),
+                'label' => trans_choice('pulsar::pulsar.date', 1),
                 'containerId' => 'dateContent',
                 'name' => 'date',
                 'id' => 'idDate',
