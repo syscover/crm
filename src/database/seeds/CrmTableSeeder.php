@@ -11,6 +11,8 @@ class CrmTableSeeder extends Seeder
 
         $this->call(CrmPackageTableSeeder::class);
         $this->call(CrmResourceTableSeeder::class);
+
+        Model::reguard();
     }
 }
 
