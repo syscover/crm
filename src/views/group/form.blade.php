@@ -1,7 +1,7 @@
 @extends('pulsar::layouts.form')
 
 @section('rows')
-    <!-- crm::groups.common -->
+    <!-- crm::groups.form -->
     @include('pulsar::includes.html.form_text_group', [
         'label' => 'ID',
         'name' => 'id',
@@ -17,5 +17,5 @@
         'rangeLength' => '2,255',
         'required' => true]
     )
-    <!-- /crm::groups.common -->
+    <!-- ./crm::groups.form -->
 @stop

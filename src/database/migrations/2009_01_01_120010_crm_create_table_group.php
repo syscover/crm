@@ -34,5 +34,4 @@ class CrmCreateTableGroup extends Migration {
             Schema::drop('009_300_group');
         }
     }
-
 }
