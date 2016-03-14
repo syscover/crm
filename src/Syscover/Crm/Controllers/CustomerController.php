@@ -30,14 +30,14 @@ class CustomerController extends Controller {
     public function indexCustom($parameters)
     {
         // init record on tap 4
-        $parameters['urlParameters']['tab']     = 4;
+        $parameters['urlParameters']['tab']     = 1;
 
         return $parameters;
     }
 
     public function customActionUrlParameters($actionUrlParameters, $parameters)
     {
-        $actionUrlParameters['tab'] = 4;
+        $actionUrlParameters['tab'] = 1;
 
         return $actionUrlParameters;
     }

@@ -1,9 +1,9 @@
 @extends('pulsar::layouts.tab', ['tabs' => [
         ['id' => 'box_tab1', 'name' => trans_choice('pulsar::pulsar.customer', 1)],
         ['id' => 'box_tab2', 'name' => trans_choice('pulsar::pulsar.attachment', 2)],
-        ['id' => 'box_tab3', 'name' => 'default'],
-        ['id' => 'box_tab4', 'name' => 'default'],
-        ['id' => 'box_tab5', 'name' => 'default'],
+        //['id' => 'box_tab3', 'name' => 'default'],
+        //['id' => 'box_tab4', 'name' => 'default'],
+        //['id' => 'box_tab5', 'name' => 'default'],
     ]])
 
 @section('head')
