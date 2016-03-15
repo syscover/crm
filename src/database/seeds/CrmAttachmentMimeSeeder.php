@@ -10,8 +10,10 @@ class CrmAttachmentMimeSeeder extends Seeder
         AttachmentMime::insert([
             ['resource_id_019' => 'cms-article', 'mime_019' => 'image/jpeg'],
             ['resource_id_019' => 'cms-article', 'mime_019' => 'image/png'],
+            ['resource_id_019' => 'cms-article', 'mime_019' => 'text/plain'],
             ['resource_id_019' => 'cms-article', 'mime_019' => 'application/pdf'],
             ['resource_id_019' => 'cms-article', 'mime_019' => 'application/msword'],
+            ['resource_id_019' => 'cms-article', 'mime_019' => 'application/msexcel'],
         ]);
     }
 }
