@@ -14,6 +14,7 @@ class CrmAttachmentMimeSeeder extends Seeder
             ['resource_id_019' => 'cms-article', 'mime_019' => 'application/pdf'],
             ['resource_id_019' => 'cms-article', 'mime_019' => 'application/msword'],
             ['resource_id_019' => 'cms-article', 'mime_019' => 'application/msexcel'],
+            ['resource_id_019' => 'cms-article', 'mime_019' => 'application/zip'],
         ]);
     }
 }
