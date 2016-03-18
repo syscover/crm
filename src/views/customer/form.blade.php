@@ -39,7 +39,7 @@
         'objectId'          => isset($object)? $object->id_301 : null])
 
     <script type="text/javascript">
-        $(document).on('ready', function() {
+        $(document).ready(function() {
             $.getAddress({
                 id:                         '01',
                 type:                       'laravel',
