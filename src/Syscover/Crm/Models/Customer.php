@@ -79,11 +79,6 @@ class Customer extends Authenticatable
             ->orderBy('001_016_attachment.sorting_016');
     }
 
-    protected static function addToGetIndexRecords($parameters)
-    {
-        return Customer::builder();
-    }
-
     /**
      * Get the unique identifier for the user.
      *
