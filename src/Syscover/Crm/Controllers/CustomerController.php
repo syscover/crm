@@ -42,7 +42,7 @@ class CustomerController extends Controller {
         return $actionUrlParameters;
     }
 
-    public function createCustomRecord($request, $parameters)
+    public function createCustomRecord($parameters)
     {
         $parameters['langs']        = Lang::all();
 
@@ -78,45 +78,45 @@ class CustomerController extends Controller {
         return $parameters;
     }
 
-    public function storeCustomRecord($request, $parameters)
+    public function storeCustomRecord($parameters)
     {
         $customer = Customer::create([
-            'lang_301'                  => $request->input('lang'),
-            'group_301'                 => $request->input('group'),
-            'date_301'                  => $request->has('date')? \DateTime::createFromFormat(config('pulsar.datePattern'), $request->input('date'))->getTimestamp() : null,
-            'company_301'               => empty($request->input('company'))? null : $request->input('company'),
-            'tin_301'                   => empty($request->input('tin'))? null : $request->input('tin'),
-            'gender_301'                => $request->has('gender')? $request->input('gender') : null,
-            'treatment_301'             => $request->has('treatment')? $request->input('treatment') : null,
-            'state_301'                 => $request->has('state')? $request->input('state') : null,
-            'name_301'                  => empty($request->input('name'))? null : $request->input('name'),
-            'surname_301'               => empty($request->input('surname'))? null : $request->input('surname'),
-            'avatar_301'                => empty($request->input('avatar'))? null : $request->input('avatar'),
-            'birth_date_301'            => $request->has('birthDate')? \DateTime::createFromFormat(config('pulsar.datePattern'), $request->input('birthDate'))->getTimestamp() : null,
-            'email_301'                 => $request->input('email'),
-            'phone_301'                 => empty($request->input('phone'))? null : $request->input('phone'),
-            'mobile_301'                => empty($request->input('mobile'))? null : $request->input('mobile'),
-            'user_301'                  => $request->input('user'),
-            'password_301'              => Hash::make($request->input('password')),
-            'active_301'                => $request->has('active'),
+            'lang_301'                  => $this->request->input('lang'),
+            'group_301'                 => $this->request->input('group'),
+            'date_301'                  => $this->request->has('date')? \DateTime::createFromFormat(config('pulsar.datePattern'), $this->request->input('date'))->getTimestamp() : null,
+            'company_301'               => empty($this->request->input('company'))? null : $this->request->input('company'),
+            'tin_301'                   => empty($this->request->input('tin'))? null : $this->request->input('tin'),
+            'gender_301'                => $this->request->has('gender')? $this->request->input('gender') : null,
+            'treatment_301'             => $this->request->has('treatment')? $this->request->input('treatment') : null,
+            'state_301'                 => $this->request->has('state')? $this->request->input('state') : null,
+            'name_301'                  => empty($this->request->input('name'))? null : $this->request->input('name'),
+            'surname_301'               => empty($this->request->input('surname'))? null : $this->request->input('surname'),
+            'avatar_301'                => empty($this->request->input('avatar'))? null : $this->request->input('avatar'),
+            'birth_date_301'            => $this->request->has('birthDate')? \DateTime::createFromFormat(config('pulsar.datePattern'), $this->request->input('birthDate'))->getTimestamp() : null,
+            'email_301'                 => $this->request->input('email'),
+            'phone_301'                 => empty($this->request->input('phone'))? null : $this->request->input('phone'),
+            'mobile_301'                => empty($this->request->input('mobile'))? null : $this->request->input('mobile'),
+            'user_301'                  => $this->request->input('user'),
+            'password_301'              => Hash::make($this->request->input('password')),
+            'active_301'                => $this->request->has('active'),
             'confirmed_301'             => false,
-            'country_301'               => $request->has('country')? $request->input('country') : null,
-            'territorial_area_1_301'    => $request->has('territorialArea1')? $request->input('territorialArea1') : null,
-            'territorial_area_2_301'    => $request->has('territorialArea2')? $request->input('territorialArea2') : null,
-            'territorial_area_3_301'    => $request->has('territorialArea3')? $request->input('territorialArea3') : null,
-            'cp_301'                    => empty($request->input('cp'))? null : $request->input('cp'),
-            'locality_301'              => empty($request->input('locality'))? null : $request->input('locality'),
-            'address_301'               => empty($request->input('address'))? null : $request->input('address'),
-            'latitude_301'              => empty($request->input('latitude'))? null : $request->input('latitude'),
-            'longitude_301'             => empty($request->input('longitude'))? null : $request->input('longitude'),
+            'country_301'               => $this->request->has('country')? $this->request->input('country') : null,
+            'territorial_area_1_301'    => $this->request->has('territorialArea1')? $this->request->input('territorialArea1') : null,
+            'territorial_area_2_301'    => $this->request->has('territorialArea2')? $this->request->input('territorialArea2') : null,
+            'territorial_area_3_301'    => $this->request->has('territorialArea3')? $this->request->input('territorialArea3') : null,
+            'cp_301'                    => empty($this->request->input('cp'))? null : $this->request->input('cp'),
+            'locality_301'              => empty($this->request->input('locality'))? null : $this->request->input('locality'),
+            'address_301'               => empty($this->request->input('address'))? null : $this->request->input('address'),
+            'latitude_301'              => empty($this->request->input('latitude'))? null : $this->request->input('latitude'),
+            'longitude_301'             => empty($this->request->input('longitude'))? null : $this->request->input('longitude'),
         ]);
 
         // set attachments
-        $attachments = json_decode($request->input('attachments'));
+        $attachments = json_decode($this->request->input('attachments'));
         AttachmentLibrary::storeAttachments($attachments, 'crm', 'crm-customer', $customer->id_301, base_lang()->id_001);
     }
 
-    public function editCustomRecord($request, $parameters)
+    public function editCustomRecord($parameters)
     {
         $parameters['langs']        = Lang::all();
 
@@ -147,36 +147,36 @@ class CustomerController extends Controller {
         return $parameters;
     }
     
-    public function updateCustomRecord($request, $parameters)
+    public function updateCustomRecord($parameters)
     {
         Customer::where('id_301', $parameters['id'])->update([
-            'lang_301'                  => $request->input('lang'),
-            'group_301'                 => $request->input('group'),
-            'date_301'                  => $request->has('date')? \DateTime::createFromFormat(config('pulsar.datePattern'), $request->input('date'))->getTimestamp() : null,
-            'company_301'               => empty($request->input('company'))? null : $request->input('company'),
-            'tin_301'                   => empty($request->input('tin'))? null : $request->input('tin'),
-            'gender_301'                => $request->has('gender')? $request->input('gender') : null,
-            'treatment_301'             => $request->has('treatment')? $request->input('treatment') : null,
-            'state_301'                 => $request->has('state')? $request->input('state') : null,
-            'name_301'                  => empty($request->input('name'))? null : $request->input('name'),
-            'surname_301'               => empty($request->input('surname'))? null : $request->input('surname'),
-            'avatar_301'                => empty($request->input('avatar'))? null : $request->input('avatar'),
-            'birth_date_301'            => $request->has('birthDate')? \DateTime::createFromFormat(config('pulsar.datePattern'), $request->input('birthDate'))->getTimestamp() : null,
-            'email_301'                 => $request->input('email'),
-            'phone_301'                 => empty($request->input('phone'))? null : $request->input('phone'),
-            'mobile_301'                => empty($request->input('phone'))? null : $request->input('mobile'),
-            'user_301'                  => $request->input('user'),
-            'password_301'              => Hash::make($request->input('password')),
-            'active_301'                => $request->has('active'),
-            'country_301'               => $request->has('country')? $request->input('country') : null,
-            'territorial_area_1_301'    => $request->has('territorialArea1')? $request->input('territorialArea1') : null,
-            'territorial_area_2_301'    => $request->has('territorialArea2')? $request->input('territorialArea2') : null,
-            'territorial_area_3_301'    => $request->has('territorialArea3')? $request->input('territorialArea3') : null,
-            'cp_301'                    => empty($request->input('cp'))? null : $request->input('cp'),
-            'locality_301'              => empty($request->input('locality'))? null : $request->input('locality'),
-            'address_301'               => empty($request->input('address'))? null : $request->input('address'),
-            'latitude_301'              => empty($request->input('latitude'))? null : $request->input('latitude'),
-            'longitude_301'             => empty($request->input('longitude'))? null : $request->input('longitude'),
+            'lang_301'                  => $this->request->input('lang'),
+            'group_301'                 => $this->request->input('group'),
+            'date_301'                  => $this->request->has('date')? \DateTime::createFromFormat(config('pulsar.datePattern'), $this->request->input('date'))->getTimestamp() : null,
+            'company_301'               => empty($this->request->input('company'))? null : $this->request->input('company'),
+            'tin_301'                   => empty($this->request->input('tin'))? null : $this->request->input('tin'),
+            'gender_301'                => $this->request->has('gender')? $this->request->input('gender') : null,
+            'treatment_301'             => $this->request->has('treatment')? $this->request->input('treatment') : null,
+            'state_301'                 => $this->request->has('state')? $this->request->input('state') : null,
+            'name_301'                  => empty($this->request->input('name'))? null : $this->request->input('name'),
+            'surname_301'               => empty($this->request->input('surname'))? null : $this->request->input('surname'),
+            'avatar_301'                => empty($this->request->input('avatar'))? null : $this->request->input('avatar'),
+            'birth_date_301'            => $this->request->has('birthDate')? \DateTime::createFromFormat(config('pulsar.datePattern'), $this->request->input('birthDate'))->getTimestamp() : null,
+            'email_301'                 => $this->request->input('email'),
+            'phone_301'                 => empty($this->request->input('phone'))? null : $this->request->input('phone'),
+            'mobile_301'                => empty($this->request->input('phone'))? null : $this->request->input('mobile'),
+            'user_301'                  => $this->request->input('user'),
+            'password_301'              => Hash::make($this->request->input('password')),
+            'active_301'                => $this->request->has('active'),
+            'country_301'               => $this->request->has('country')? $this->request->input('country') : null,
+            'territorial_area_1_301'    => $this->request->has('territorialArea1')? $this->request->input('territorialArea1') : null,
+            'territorial_area_2_301'    => $this->request->has('territorialArea2')? $this->request->input('territorialArea2') : null,
+            'territorial_area_3_301'    => $this->request->has('territorialArea3')? $this->request->input('territorialArea3') : null,
+            'cp_301'                    => empty($this->request->input('cp'))? null : $this->request->input('cp'),
+            'locality_301'              => empty($this->request->input('locality'))? null : $this->request->input('locality'),
+            'address_301'               => empty($this->request->input('address'))? null : $this->request->input('address'),
+            'latitude_301'              => empty($this->request->input('latitude'))? null : $this->request->input('latitude'),
+            'longitude_301'             => empty($this->request->input('longitude'))? null : $this->request->input('longitude'),
         ]);
     }
 }
