@@ -3,7 +3,7 @@
 @section('head')
     @parent
     <!-- crm::customer.index -->
-    <script type="text/javascript">
+    <script>
         $(document).ready(function() {
             if ($.fn.dataTable)
             {
