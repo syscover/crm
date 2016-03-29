@@ -27,7 +27,7 @@ class CustomerController extends Controller {
     protected $icon         = 'fa fa-user';
     protected $objectTrans  = 'customer';
 
-    public function indexCustom($parameters)
+    public function customIndex($parameters)
     {
         // init record on tap 4
         $parameters['urlParameters']['tab']     = 1;
