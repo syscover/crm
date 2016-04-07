@@ -38,7 +38,7 @@
         'lang'              => session('baseLang'),
         'objectId'          => isset($object)? $object->id_301 : null])
 
-    <script type="text/javascript">
+    <script>
         $(document).ready(function() {
             $.getAddress({
                 id:                         '01',
