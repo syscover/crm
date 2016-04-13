@@ -2,6 +2,8 @@
 
 ## Installation
 
+Before install sycover/crm, you need install syscover/pulsar to load application base
+
 **1 - After install Laravel framework, insert on file composer.json, inside require object this value**
 ```
 "syscover/crm": "dev-master"
