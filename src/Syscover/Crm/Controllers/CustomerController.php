@@ -187,9 +187,9 @@ class CustomerController extends Controller {
             'longitude_301'             => empty($this->request->input('longitude'))? null : $this->request->input('longitude'),
         ];
 
-        if($parameters['specialRules']['emailRule'])  $user['email_301']      = $this->request->input('email');
-        if($parameters['specialRules']['userRule'])   $user['user_301']       = $this->request->input('user');
-        if(!$parameters['specialRules']['passRule'])  $user['password_301']   = Hash::make($this->request->input('password'));
+        if($parameters['specialRules']['emailRule'])  $customer['email_301']      = $this->request->input('email');
+        if($parameters['specialRules']['userRule'])   $customer['user_301']       = $this->request->input('user');
+        if(! $parameters['specialRules']['passRule']) $customer['password_301']   = Hash::make($this->request->input('password'));
 
         Customer::where('id_301', $parameters['id'])->update($customer);
     }
