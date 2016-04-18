@@ -37,7 +37,7 @@ class Customer extends Authenticatable
         'password'  => 'required|between:4,50|same:repassword'
     ];
 
-    public static function validate($data)
+    public static function validate($data, $specialRules)
     {
         if(isset($specialRules['emailRule']) && $specialRules['emailRule']) static::$rules['email'] = 'required|between:2,255|email';
         if(isset($specialRules['userRule']) && $specialRules['userRule'])   static::$rules['user'] = 'required|between:2,255';
