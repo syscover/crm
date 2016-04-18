@@ -12,12 +12,12 @@ class CrmCreateTableGroup extends Migration {
      */
     public function up()
     {
-        if (!Schema::hasTable('009_300_group'))
+        if (! Schema::hasTable('009_300_group'))
         {
             Schema::create('009_300_group', function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->increments('id_300')->unsigned();
-                $table->string('name_300', 50);
+                $table->string('name_300');
             });
         }
     }

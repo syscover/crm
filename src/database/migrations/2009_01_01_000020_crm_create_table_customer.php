@@ -12,31 +12,31 @@ class CrmCreateTableCustomer extends Migration {
      */
     public function up()
     {
-        if (!Schema::hasTable('009_301_customer'))
+        if (! Schema::hasTable('009_301_customer'))
         {
             Schema::create('009_301_customer', function (Blueprint $table) {
                 $table->engine = 'InnoDB';
 
                 $table->increments('id_301')->unsigned();
                 $table->string('lang_301', 2);
-                $table->string('remember_token_301', 100)->nullable();
+                $table->string('remember_token_301')->nullable();
                 $table->integer('group_301')->unsigned();
                 $table->integer('date_301');
                 $table->string('company_301')->nullable();
-                $table->string('tin_301', 50)->nullable();
+                $table->string('tin_301')->nullable();
                 $table->boolean('gender_301')->nullable();
                 $table->tinyInteger('treatment_301')->unsigned()->nullable();
                 $table->tinyInteger('state_301')->unsigned()->nullable();
-                $table->string('name_301', 50)->nullable();
-                $table->string('surname_301', 50)->nullable();
+                $table->string('name_301')->nullable();
+                $table->string('surname_301')->nullable();
                 $table->string('avatar_301')->nullable();
                 $table->integer('birth_date_301')->unsigned()->nullable();
-                $table->string('email_301', 50);
-                $table->string('phone_301', 50)->nullable();
-                $table->string('mobile_301', 50)->nullable();
+                $table->string('email_301');
+                $table->string('phone_301')->nullable();
+                $table->string('mobile_301')->nullable();
 
                 // access
-                $table->string('user_301', 50);
+                $table->string('user_301');
                 $table->string('password_301');
                 $table->boolean('active_301');
                 $table->boolean('confirmed_301');
@@ -46,11 +46,11 @@ class CrmCreateTableCustomer extends Migration {
                 $table->string('territorial_area_1_301', 6)->nullable();
                 $table->string('territorial_area_2_301', 10)->nullable();
                 $table->string('territorial_area_3_301', 10)->nullable();
-                $table->string('cp_301', 10)->nullable();
+                $table->string('cp_301')->nullable();
                 $table->string('locality_301')->nullable();
                 $table->string('address_301')->nullable();
-                $table->string('latitude_301', 50)->nullable();
-                $table->string('longitude_301', 50)->nullable();
+                $table->string('latitude_301')->nullable();
+                $table->string('longitude_301')->nullable();
 
                 $table->integer('custom_field_group_301')->unsigned()->nullable();
 

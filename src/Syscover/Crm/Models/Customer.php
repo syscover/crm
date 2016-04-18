@@ -30,12 +30,19 @@ class Customer extends Authenticatable
     ];
     protected $relationMaps = [];
     private static $rules   = [
-        'name'  => 'required|between:2,50',
-        'lang'  => 'required'
+        'name'      => 'required|between:2,255',
+        'lang'      => 'required',
+        'email'     => 'required|between:2,255|email|unique:009_301_customer,email_301',
+        'user'      => 'required|between:2,255|unique:009_301_customer,user_301',
+        'password'  => 'required|between:4,50|same:repassword'
     ];
 
     public static function validate($data)
     {
+        if(isset($specialRules['emailRule']) && $specialRules['emailRule']) static::$rules['email'] = 'required|between:2,255|email';
+        if(isset($specialRules['userRule']) && $specialRules['userRule'])   static::$rules['user'] = 'required|between:2,255';
+        if(isset($specialRules['passRule']) && $specialRules['passRule'])   static::$rules['password'] = '';
+
         return Validator::make($data, static::$rules);
 	}
 

@@ -146,10 +146,21 @@ class CustomerController extends Controller {
 
         return $parameters;
     }
+
+    public function checkSpecialRulesToUpdate($parameters)
+    {
+        $customer = Customer::builder()->find($parameters['id']);
+
+        $parameters['specialRules']['emailRule']    = $this->request->input('email') == $customer->email_301? true : false;
+        $parameters['specialRules']['userRule']     = $this->request->input('user') == $customer->user_301? true : false;
+        $parameters['specialRules']['passRule']     = ! $this->request->has('password');
+
+        return $parameters;
+    }
     
     public function updateCustomRecord($parameters)
     {
-        Customer::where('id_301', $parameters['id'])->update([
+        $customer = [
             'lang_301'                  => $this->request->input('lang'),
             'group_301'                 => $this->request->input('group'),
             'date_301'                  => $this->request->has('date')? \DateTime::createFromFormat(config('pulsar.datePattern'), $this->request->input('date'))->getTimestamp() : null,
@@ -162,11 +173,8 @@ class CustomerController extends Controller {
             'surname_301'               => empty($this->request->input('surname'))? null : $this->request->input('surname'),
             'avatar_301'                => empty($this->request->input('avatar'))? null : $this->request->input('avatar'),
             'birth_date_301'            => $this->request->has('birthDate')? \DateTime::createFromFormat(config('pulsar.datePattern'), $this->request->input('birthDate'))->getTimestamp() : null,
-            'email_301'                 => $this->request->input('email'),
             'phone_301'                 => empty($this->request->input('phone'))? null : $this->request->input('phone'),
             'mobile_301'                => empty($this->request->input('phone'))? null : $this->request->input('mobile'),
-            'user_301'                  => $this->request->input('user'),
-            'password_301'              => Hash::make($this->request->input('password')),
             'active_301'                => $this->request->has('active'),
             'country_301'               => $this->request->has('country')? $this->request->input('country') : null,
             'territorial_area_1_301'    => $this->request->has('territorialArea1')? $this->request->input('territorialArea1') : null,
@@ -177,6 +185,12 @@ class CustomerController extends Controller {
             'address_301'               => empty($this->request->input('address'))? null : $this->request->input('address'),
             'latitude_301'              => empty($this->request->input('latitude'))? null : $this->request->input('latitude'),
             'longitude_301'             => empty($this->request->input('longitude'))? null : $this->request->input('longitude'),
-        ]);
+        ];
+
+        if($parameters['specialRules']['emailRule'])  $user['email_301']      = $this->request->input('email');
+        if($parameters['specialRules']['userRule'])   $user['user_301']       = $this->request->input('user');
+        if(!$parameters['specialRules']['passRule'])  $user['password_301']   = Hash::make($this->request->input('password'));
+
+        Customer::where('id_301', $parameters['id'])->update($customer);
     }
 }

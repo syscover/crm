@@ -170,23 +170,23 @@
         'label' => trans('pulsar::pulsar.tin'),
         'name' => 'tin',
         'value' => old('tin', isset($object)? $object->tin_301 : null),
-        'maxLength' => '50',
-        'rangeLength' => '2,50'
+        'maxLength' => '255',
+        'rangeLength' => '2,255'
     ])
 
     @include('pulsar::includes.html.form_text_group', [
         'label' => trans('pulsar::pulsar.name'),
         'name' => 'name',
         'value' => old('name', isset($object)? $object->name_301 : null),
-        'maxLength' => '50',
-        'rangeLength' => '2,50'
+        'maxLength' => '255',
+        'rangeLength' => '2,255'
     ])
     @include('pulsar::includes.html.form_text_group', [
         'label' => trans('pulsar::pulsar.surname'),
         'name' => 'surname',
         'value' => old('surname', isset($object)? $object->surname_301 : null),
-        'maxLength' => '50',
-        'rangeLength' => '2,50'
+        'maxLength' => '255',
+        'rangeLength' => '2,255'
     ])
     <div class="row">
         <div class="col-md-6">
@@ -232,8 +232,8 @@
                 'label' => trans('pulsar::pulsar.email'),
                 'name' => 'email',
                 'value' => old('email', isset($object)? $object->email_301 : null),
-                'maxLength' => '50',
-                'rangeLength' => '2,50',
+                'maxLength' => '255',
+                'rangeLength' => '2,255',
                 'type' => 'email',
                 'required' => true
             ])
@@ -243,8 +243,8 @@
                 'label' => trans('pulsar::pulsar.mobile'),
                 'name' => 'mobile',
                 'value' => old('mobile', isset($object)? $object->mobile_301 : null),
-                'maxLength' => '50',
-                'rangeLength' => '2,50'
+                'maxLength' => '255',
+                'rangeLength' => '2,255'
             ])
         </div>
         <div class="col-md-6">
@@ -267,8 +267,8 @@
                 'label' => trans_choice('pulsar::pulsar.phone', 1),
                 'name' => 'phone',
                 'value' => old('phone', isset($object)? $object->phone_301 : null),
-                'maxLength' => '50',
-                'rangeLength' => '2,50'
+                'maxLength' => '255',
+                'rangeLength' => '2,255'
             ])
         </div>
     </div>
@@ -285,8 +285,8 @@
                 'label' => trans_choice('pulsar::pulsar.user', 1),
                 'name' => 'user',
                 'value' => old('user', isset($object)? $object->user_301 : null),
-                'maxLength' => '50',
-                'rangeLength' => '2,50',
+                'maxLength' => '255',
+                'rangeLength' => '2,255',
                 'required' => true
             ])
             @include('pulsar::includes.html.form_text_group', [
@@ -345,8 +345,8 @@
         'label' => trans_choice('pulsar::pulsar.address', 1),
         'name' => 'address',
         'value' => old('address', isset($object)? $object->address_301 : null),
-        'maxLength' => '150',
-        'rangeLength' => '2,150'
+        'maxLength' => '255',
+        'rangeLength' => '2,255'
     ])
     <div class="row">
         <div class="col-md-6">
@@ -407,8 +407,8 @@
                 'label' => trans('pulsar::pulsar.cp'),
                 'name' => 'cp',
                 'value' => old('cp', isset($object)? $object->cp_301 : null),
-                'maxLength' => '10',
-                'rangeLength' => '2,10'
+                'maxLength' => '255',
+                'rangeLength' => '2,255'
             ])
             @include('pulsar::includes.html.form_text_group', [
                 'labelSize' => 4,
@@ -425,8 +425,8 @@
                 'label' => trans('pulsar::pulsar.latitude'),
                 'name' => 'latitude',
                 'value' => old('latitude', isset($object)? $object->latitude_301 : null),
-                'maxLength' => '50',
-                'rangeLength' => '2,50'
+                'maxLength' => '255',
+                'rangeLength' => '2,255'
             ])
             @include('pulsar::includes.html.form_text_group', [
                 'labelSize' => 4,
@@ -434,8 +434,8 @@
                 'label' => trans('pulsar::pulsar.longitude'),
                 'name' => 'longitude',
                 'value' => old('longitude', isset($object)? $object->longitude_301 : null),
-                'maxLength' => '50',
-                'rangeLength' => '2,50'
+                'maxLength' => '255',
+                'rangeLength' => '2,255'
             ])
         </div>
         <div class="col-md-6">
