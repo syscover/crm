@@ -1,7 +1,6 @@
 <?php namespace Syscover\Crm\Controllers;
 
-use Syscover\Pulsar\Controllers\Controller;
-use Syscover\Pulsar\Traits\TraitController;
+use Syscover\Pulsar\Core\Controller;
 use Syscover\Crm\Models\Group;
 
 /**
@@ -9,10 +8,8 @@ use Syscover\Crm\Models\Group;
  * @package Syscover\Crm\Controllers
  */
 
-class GroupController extends Controller {
-
-    use TraitController;
-
+class GroupController extends Controller
+{
     protected $routeSuffix  = 'crmGroup';
     protected $folder       = 'group';
     protected $package      = 'crm';

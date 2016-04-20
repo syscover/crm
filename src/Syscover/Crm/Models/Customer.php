@@ -1,10 +1,15 @@
 <?php namespace Syscover\Crm\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Support\Facades\Validator;
-use Syscover\Pulsar\Traits\TraitModel;
+use Syscover\Pulsar\Core\Model;
 use Sofa\Eloquence\Eloquence;
 use Sofa\Eloquence\Mappable;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Foundation\Auth\Access\Authorizable;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 /**
  * Class Customer
@@ -15,9 +20,9 @@ use Sofa\Eloquence\Mappable;
  * @package     Syscover\Crm\Models
  */
 
-class Customer extends Authenticatable
+class Customer extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract
 {
-    use TraitModel;
+    use Authenticatable, Authorizable, CanResetPassword;
     use Eloquence, Mappable;
 
 	protected $table        = '009_301_customer';
@@ -25,6 +30,7 @@ class Customer extends Authenticatable
     protected $suffix       = '301';
     public $timestamps      = false;
     protected $fillable     = ['id_301', 'lang_301', 'group_301', 'date_301', 'company_301', 'tin_301', 'gender_301', 'treatment_301', 'state_301', 'name_301', 'surname_301', 'avatar_301', 'birth_date_301', 'email_301', 'phone_301', 'mobile_301', 'user_301', 'password_301', 'active_301', 'confirmed_301', 'country_301', 'territorial_area_1_301', 'territorial_area_2_301', 'territorial_area_3_301', 'cp_301', 'locality_301', 'address_301', 'latitude_301', 'longitude_301', 'custom_field_group_301', 'data_301'];
+    protected $hidden       = ['password_301', 'remember_token_301'];
     protected $maps         = [
         'lang'      => \Syscover\Pulsar\Models\Lang::class,
     ];

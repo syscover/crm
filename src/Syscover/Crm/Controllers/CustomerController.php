@@ -1,11 +1,10 @@
 <?php namespace Syscover\Crm\Controllers;
 
+use Syscover\Pulsar\Core\Controller;
 use Illuminate\Support\Facades\Hash;
-use Syscover\Pulsar\Controllers\Controller;
 use Syscover\Pulsar\Models\AttachmentFamily;
 use Syscover\Pulsar\Libraries\AttachmentLibrary;
 use Syscover\Pulsar\Models\Lang;
-use Syscover\Pulsar\Traits\TraitController;
 use Syscover\Crm\Models\Customer;
 use Syscover\Crm\Models\Group;
 
@@ -14,10 +13,8 @@ use Syscover\Crm\Models\Group;
  * @package Syscover\Crm\Controllers
  */
 
-class CustomerController extends Controller {
-
-    use TraitController;
-
+class CustomerController extends Controller
+{
     protected $routeSuffix  = 'crmCustomer';
     protected $folder       = 'customer';
     protected $package      = 'crm';
@@ -30,7 +27,8 @@ class CustomerController extends Controller {
     public function customIndex($parameters)
     {
         // init record on tap 4
-        $parameters['urlParameters']['tab']     = 1;
+        $parameters['urlParameters']['tab']         = 1;
+        $parameters['viewParameters']['newButton']  = true;
 
         return $parameters;
     }
@@ -40,6 +38,13 @@ class CustomerController extends Controller {
         $actionUrlParameters['tab'] = 1;
 
         return $actionUrlParameters;
+    }
+
+    public function setViewParametersJsonData($parameters)
+    {
+        if($parameters['modal'] == 1)
+            $this->viewParameters['checkBoxColumn'] = false;
+
     }
 
     public function createCustomRecord($parameters)
