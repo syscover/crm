@@ -26,11 +26,18 @@ class CustomerController extends Controller
 
     public function customIndex($parameters)
     {
-        // init record on tap 4
-        $parameters['urlParameters']['tab']         = 1;
-        $parameters['viewParameters']['newButton']  = true;
+        // init record on tap 1
+        $parameters['urlParameters']['tab'] = 1;
+        if(isset($parameters['modal']) && $parameters['modal'] == 1)
+            $this->viewParameters['deleteSelectButton'] = false;
 
         return $parameters;
+    }
+
+    public function customJsonData($parameters)
+    {
+        if($parameters['modal'] == 1)
+            $this->viewParameters['checkBoxColumn'] = false;
     }
 
     public function customActionUrlParameters($actionUrlParameters, $parameters)
@@ -38,13 +45,6 @@ class CustomerController extends Controller
         $actionUrlParameters['tab'] = 1;
 
         return $actionUrlParameters;
-    }
-
-    public function setViewParametersJsonData($parameters)
-    {
-        if($parameters['modal'] == 1)
-            $this->viewParameters['checkBoxColumn'] = false;
-
     }
 
     public function createCustomRecord($parameters)
