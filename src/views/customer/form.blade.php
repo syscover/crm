@@ -106,7 +106,7 @@
         'label' => 'ID',
         'fieldSize' => 2,
         'name' => 'id',
-        'value' => old('id', isset($object)? $object->id_301 : null),
+        'value' => old('id', isset($object->id_301)? $object->id_301 : null),
         'readOnly' => true
     ])
     @include('pulsar::includes.html.form_select_group', [
@@ -114,7 +114,7 @@
         'label' => trans_choice('pulsar::pulsar.language', 1),
         'fileSize' => 5,
         'name' => 'lang',
-        'value' => old('lang', isset($object)? $object->lang_301 : null),
+        'value' => old('lang', isset($object->lang_301)? $object->lang_301 : null),
         'required' => true,
         'objects' => $langs,
         'idSelect' => 'id_001',
@@ -128,7 +128,7 @@
                 'id' => 'group',
                 'label' => trans_choice('pulsar::pulsar.group', 1),
                 'name' => 'group',
-                'value' => old('group', isset($object)? $object->group_301 : null),
+                'value' => (int) old('group', isset($object->group_301)? $object->group_301 : null),
                 'objects' => $groups,
                 'idSelect' => 'id_300',
                 'nameSelect' => 'name_300',
@@ -161,7 +161,7 @@
     @include('pulsar::includes.html.form_text_group', [
         'label' => trans_choice('pulsar::pulsar.company', 1),
         'name' => 'company',
-        'value' => old('company', isset($object)? $object->company_301 : null),
+        'value' => old('company', isset($object->company_301)? $object->company_301 : null),
         'maxLength' => '255',
         'rangeLength' => '2,255'
     ])
@@ -169,7 +169,7 @@
         'fieldSize' => 5,
         'label' => trans('pulsar::pulsar.tin'),
         'name' => 'tin',
-        'value' => old('tin', isset($object)? $object->tin_301 : null),
+        'value' => old('tin', isset($object->tin_301)? $object->tin_301 : null),
         'maxLength' => '255',
         'rangeLength' => '2,255'
     ])
@@ -177,14 +177,14 @@
     @include('pulsar::includes.html.form_text_group', [
         'label' => trans('pulsar::pulsar.name'),
         'name' => 'name',
-        'value' => old('name', isset($object)? $object->name_301 : null),
+        'value' => old('name', isset($object->name_301)? $object->name_301 : null),
         'maxLength' => '255',
         'rangeLength' => '2,255'
     ])
     @include('pulsar::includes.html.form_text_group', [
         'label' => trans('pulsar::pulsar.surname'),
         'name' => 'surname',
-        'value' => old('surname', isset($object)? $object->surname_301 : null),
+        'value' => old('surname', isset($object->surname_301)? $object->surname_301 : null),
         'maxLength' => '255',
         'rangeLength' => '2,255'
     ])
@@ -195,7 +195,7 @@
                 'fieldSize' => 8,
                 'label' => trans('pulsar::pulsar.gender'),
                 'name' => 'gender',
-                'value' => old('gender', isset($object)? $object->gender_301 : null),
+                'value' => old('gender', isset($object->gender_301)? $object->gender_301 : null),
                 'objects' => $genres,
                 'idSelect' => 'id',
                 'nameSelect' => 'name'
@@ -205,7 +205,7 @@
                 'fieldSize' => 8,
                 'label' => trans_choice('pulsar::pulsar.state', 1),
                 'name' => 'state',
-                'value' => old('state', isset($object)? $object->state_301 : null),
+                'value' => old('state', isset($object->state_301)? $object->state_301 : null),
                 'objects' => $states,
                 'idSelect' => 'id',
                 'nameSelect' => 'name'
@@ -217,7 +217,7 @@
                 'fieldSize' => 8,
                 'label' => trans_choice('pulsar::pulsar.treatment', 1),
                 'name' => 'treatment',
-                'value' => old('treatment', isset($object)? $object->treatment_301 : null),
+                'value' => old('treatment', isset($object->treatment_301)? $object->treatment_301 : null),
                 'objects' => $treatments,
                 'idSelect' => 'id',
                 'nameSelect' => 'name'
@@ -252,13 +252,11 @@
                 'labelSize' => 4,
                 'fieldSize' => 8,
                 'label' => trans('pulsar::pulsar.birth_date'),
-                'containerId' => 'birthDateContent',
                 'name' => 'birthDate',
-                'id' => 'idBirthDate',
-                'value' => old('birthDate', isset($object)? date(config('pulsar.datePattern'), $object->birth_date_301) : date(config('pulsar.datePattern'))),
                 'data' => [
                     'format' => Miscellaneous::convertFormatDate(config('pulsar.datePattern')),
-                    'locale' => config('app.locale')
+                    'locale' => config('app.locale'),
+                    'default-date' => old('birthDate', isset($object->birth_date_301)? date('Y-m-d', $object->birth_date_301) : null)
                 ]
             ])
             @include('pulsar::includes.html.form_text_group', [
@@ -284,7 +282,7 @@
                 'fieldSize' => 8,
                 'label' => trans_choice('pulsar::pulsar.user', 1),
                 'name' => 'user',
-                'value' => old('user', isset($object)? $object->user_301 : null),
+                'value' => old('user', isset($object->user_301)? $object->user_301 : null),
                 'maxLength' => '255',
                 'rangeLength' => '2,255',
                 'required' => true
@@ -321,7 +319,7 @@
                 'label' => trans('pulsar::pulsar.active'),
                 'name' => 'active',
                 'value' => 1,
-                'checked' => old('active', isset($object)? $object->active_301 : null)
+                'checked' => old('active', isset($object->active_301)? $object->active_301 : null)
             ])
             @if($action == 'update')
                 @include('pulsar::includes.html.form_checkbox_group', [
@@ -344,7 +342,7 @@
     @include('pulsar::includes.html.form_text_group', [
         'label' => trans_choice('pulsar::pulsar.address', 1),
         'name' => 'address',
-        'value' => old('address', isset($object)? $object->address_301 : null),
+        'value' => old('address', isset($object->address_301)? $object->address_301 : null),
         'maxLength' => '255',
         'rangeLength' => '2,255'
     ])
@@ -406,7 +404,7 @@
                 'fieldSize' => 4,
                 'label' => trans('pulsar::pulsar.cp'),
                 'name' => 'cp',
-                'value' => old('cp', isset($object)? $object->cp_301 : null),
+                'value' => old('cp', isset($object->cp_301)? $object->cp_301 : null),
                 'maxLength' => '255',
                 'rangeLength' => '2,255'
             ])
@@ -415,7 +413,7 @@
                 'fieldSize' => 6,
                 'label' => trans('pulsar::pulsar.locality'),
                 'name' => 'locality',
-                'value' => old('locality', isset($object)? $object->locality_301 : null),
+                'value' => old('locality', isset($object->locality_301)? $object->locality_301 : null),
                 'maxLength' => '255',
                 'rangeLength' => '2,255'
             ])
@@ -424,7 +422,7 @@
                 'fieldSize' => 8,
                 'label' => trans('pulsar::pulsar.latitude'),
                 'name' => 'latitude',
-                'value' => old('latitude', isset($object)? $object->latitude_301 : null),
+                'value' => old('latitude', isset($object->latitude_301)? $object->latitude_301 : null),
                 'maxLength' => '255',
                 'rangeLength' => '2,255'
             ])
@@ -433,7 +431,7 @@
                 'fieldSize' => 8,
                 'label' => trans('pulsar::pulsar.longitude'),
                 'name' => 'longitude',
-                'value' => old('longitude', isset($object)? $object->longitude_301 : null),
+                'value' => old('longitude', isset($object->longitude_301)? $object->longitude_301 : null),
                 'maxLength' => '255',
                 'rangeLength' => '2,255'
             ])

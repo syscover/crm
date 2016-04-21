@@ -28,6 +28,7 @@ class CustomerController extends Controller
     {
         // init record on tap 1
         $parameters['urlParameters']['tab'] = 1;
+
         if(isset($parameters['modal']) && $parameters['modal'] == 1)
             $this->viewParameters['deleteSelectButton'] = false;
 
@@ -37,11 +38,20 @@ class CustomerController extends Controller
     public function customJsonData($parameters)
     {
         if($parameters['modal'] == 1)
+        {
             $this->viewParameters['checkBoxColumn'] = false;
+            $this->viewParameters['relatedButton']  = true;
+        }
     }
 
     public function customActionUrlParameters($actionUrlParameters, $parameters)
     {
+        // set modal parameter for actions from datatable, you need instance all situations
+//        if($parameters['modal'] == 1)
+//            $actionUrlParameters['modal'] = 1;
+//        else
+//            $actionUrlParameters['modal'] = 0;
+
         $actionUrlParameters['tab'] = 1;
 
         return $actionUrlParameters;
@@ -79,6 +89,12 @@ class CustomerController extends Controller
             // merge parameters and attachments array
             $parameters  = array_merge($parameters, $attachments);
         }
+
+        // need to set modal to return on index view
+//        if(isset($parameters['modal']) && $parameters['modal'] == 1)
+//            $parameters['urlParameters']['modal'] = 1;
+//        else
+//            $parameters['urlParameters']['modal'] = 0;
 
         return $parameters;
     }
@@ -148,6 +164,12 @@ class CustomerController extends Controller
         // merge parameters and attachments array
         $parameters['attachmentFamilies']   = AttachmentFamily::getAttachmentFamilies(['resource_015' => 'cms-article']);
         $parameters                         = array_merge($parameters, $attachments);
+
+        // need to set modal to return on index view
+//        if(isset($parameters['modal']) && $parameters['modal'] == 1)
+//            $parameters['urlParameters']['modal'] = 1;
+//        else
+//            $parameters['urlParameters']['modal'] = 0;
 
         return $parameters;
     }

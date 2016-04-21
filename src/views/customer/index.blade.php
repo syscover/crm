@@ -21,7 +21,7 @@
                     ],
                     "bProcessing": true,
                     "bServerSide": true,
-                    "sAjaxSource": "{{ route('jsonData' . ucfirst($routeSuffix), ['modal' => isset($modal) && $modal? 1 : 0]) }}"
+                    "sAjaxSource": "{{ route('jsonData' . ucfirst($routeSuffix), ['modal' => $modal? 1 : 0]) }}"
                 }).fnSetFilteringDelay();
             }
         });
