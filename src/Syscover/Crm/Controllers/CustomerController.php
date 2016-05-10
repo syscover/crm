@@ -47,11 +47,6 @@ class CustomerController extends Controller
     public function customActionUrlParameters($actionUrlParameters, $parameters)
     {
         // set modal parameter for actions from datatable, you need instance all situations
-//        if($parameters['modal'] == 1)
-//            $actionUrlParameters['modal'] = 1;
-//        else
-//            $actionUrlParameters['modal'] = 0;
-
         $actionUrlParameters['tab'] = 1;
 
         return $actionUrlParameters;
@@ -90,12 +85,6 @@ class CustomerController extends Controller
             $parameters  = array_merge($parameters, $attachments);
         }
 
-        // need to set modal to return on index view
-//        if(isset($parameters['modal']) && $parameters['modal'] == 1)
-//            $parameters['urlParameters']['modal'] = 1;
-//        else
-//            $parameters['urlParameters']['modal'] = 0;
-
         return $parameters;
     }
 
@@ -105,18 +94,18 @@ class CustomerController extends Controller
             'lang_301'                  => $this->request->input('lang'),
             'group_301'                 => $this->request->input('group'),
             'date_301'                  => $this->request->has('date')? \DateTime::createFromFormat(config('pulsar.datePattern'), $this->request->input('date'))->getTimestamp() : null,
-            'company_301'               => empty($this->request->input('company'))? null : $this->request->input('company'),
-            'tin_301'                   => empty($this->request->input('tin'))? null : $this->request->input('tin'),
+            'company_301'               => $this->request->has('company')? $this->request->input('company') : null,
+            'tin_301'                   => $this->request->has('tin')? $this->request->input('tin') : null,
             'gender_301'                => $this->request->has('gender')? $this->request->input('gender') : null,
             'treatment_301'             => $this->request->has('treatment')? $this->request->input('treatment') : null,
             'state_301'                 => $this->request->has('state')? $this->request->input('state') : null,
-            'name_301'                  => empty($this->request->input('name'))? null : $this->request->input('name'),
-            'surname_301'               => empty($this->request->input('surname'))? null : $this->request->input('surname'),
-            'avatar_301'                => empty($this->request->input('avatar'))? null : $this->request->input('avatar'),
+            'name_301'                  => $this->request->has('name')? $this->request->input('name') : null,
+            'surname_301'               => $this->request->has('surname')? $this->request->input('surname') : null,
+            'avatar_301'                => $this->request->has('avatar')? $this->request->input('avatar') : null,
             'birth_date_301'            => $this->request->has('birthDate')? \DateTime::createFromFormat(config('pulsar.datePattern'), $this->request->input('birthDate'))->getTimestamp() : null,
             'email_301'                 => $this->request->input('email'),
-            'phone_301'                 => empty($this->request->input('phone'))? null : $this->request->input('phone'),
-            'mobile_301'                => empty($this->request->input('mobile'))? null : $this->request->input('mobile'),
+            'phone_301'                 => $this->request->has('phone')? $this->request->input('phone') : null,
+            'mobile_301'                => $this->request->has('mobile')? $this->request->input('mobile') : null,
             'user_301'                  => $this->request->input('user'),
             'password_301'              => Hash::make($this->request->input('password')),
             'active_301'                => $this->request->has('active'),
@@ -125,11 +114,11 @@ class CustomerController extends Controller
             'territorial_area_1_301'    => $this->request->has('territorialArea1')? $this->request->input('territorialArea1') : null,
             'territorial_area_2_301'    => $this->request->has('territorialArea2')? $this->request->input('territorialArea2') : null,
             'territorial_area_3_301'    => $this->request->has('territorialArea3')? $this->request->input('territorialArea3') : null,
-            'cp_301'                    => empty($this->request->input('cp'))? null : $this->request->input('cp'),
-            'locality_301'              => empty($this->request->input('locality'))? null : $this->request->input('locality'),
-            'address_301'               => empty($this->request->input('address'))? null : $this->request->input('address'),
-            'latitude_301'              => empty($this->request->input('latitude'))? null : $this->request->input('latitude'),
-            'longitude_301'             => empty($this->request->input('longitude'))? null : $this->request->input('longitude'),
+            'cp_301'                    => $this->request->has('cp')? $this->request->input('cp') : null,
+            'locality_301'              => $this->request->has('locality')? $this->request->input('locality') : null,
+            'address_301'               => $this->request->has('address')? $this->request->input('address') : null,
+            'latitude_301'              => $this->request->has('latitude')? $this->request->input('latitude') : null,
+            'longitude_301'             => $this->request->has('longitude')? $this->request->input('longitude') : null,
         ]);
 
         // set attachments
@@ -165,12 +154,6 @@ class CustomerController extends Controller
         $parameters['attachmentFamilies']   = AttachmentFamily::getAttachmentFamilies(['resource_015' => 'cms-article']);
         $parameters                         = array_merge($parameters, $attachments);
 
-        // need to set modal to return on index view
-//        if(isset($parameters['modal']) && $parameters['modal'] == 1)
-//            $parameters['urlParameters']['modal'] = 1;
-//        else
-//            $parameters['urlParameters']['modal'] = 0;
-
         return $parameters;
     }
 
@@ -191,27 +174,27 @@ class CustomerController extends Controller
             'lang_301'                  => $this->request->input('lang'),
             'group_301'                 => $this->request->input('group'),
             'date_301'                  => $this->request->has('date')? \DateTime::createFromFormat(config('pulsar.datePattern'), $this->request->input('date'))->getTimestamp() : null,
-            'company_301'               => empty($this->request->input('company'))? null : $this->request->input('company'),
-            'tin_301'                   => empty($this->request->input('tin'))? null : $this->request->input('tin'),
+            'company_301'               => $this->request->has('company')? $this->request->input('company') : null,
+            'tin_301'                   => $this->request->has('tin')? $this->request->input('tin') : null,
             'gender_301'                => $this->request->has('gender')? $this->request->input('gender') : null,
             'treatment_301'             => $this->request->has('treatment')? $this->request->input('treatment') : null,
             'state_301'                 => $this->request->has('state')? $this->request->input('state') : null,
-            'name_301'                  => empty($this->request->input('name'))? null : $this->request->input('name'),
-            'surname_301'               => empty($this->request->input('surname'))? null : $this->request->input('surname'),
-            'avatar_301'                => empty($this->request->input('avatar'))? null : $this->request->input('avatar'),
+            'name_301'                  => $this->request->has('name')? $this->request->input('name') : null,
+            'surname_301'               => $this->request->has('surname')? $this->request->input('surname') : null,
+            'avatar_301'                => $this->request->has('avatar')? $this->request->input('avatar') : null,
             'birth_date_301'            => $this->request->has('birthDate')? \DateTime::createFromFormat(config('pulsar.datePattern'), $this->request->input('birthDate'))->getTimestamp() : null,
-            'phone_301'                 => empty($this->request->input('phone'))? null : $this->request->input('phone'),
-            'mobile_301'                => empty($this->request->input('phone'))? null : $this->request->input('mobile'),
+            'phone_301'                 => $this->request->has('phone')? $this->request->input('phone') : null,
+            'mobile_301'                => $this->request->has('mobile')? $this->request->input('mobile') : null,
             'active_301'                => $this->request->has('active'),
             'country_301'               => $this->request->has('country')? $this->request->input('country') : null,
             'territorial_area_1_301'    => $this->request->has('territorialArea1')? $this->request->input('territorialArea1') : null,
             'territorial_area_2_301'    => $this->request->has('territorialArea2')? $this->request->input('territorialArea2') : null,
             'territorial_area_3_301'    => $this->request->has('territorialArea3')? $this->request->input('territorialArea3') : null,
-            'cp_301'                    => empty($this->request->input('cp'))? null : $this->request->input('cp'),
-            'locality_301'              => empty($this->request->input('locality'))? null : $this->request->input('locality'),
-            'address_301'               => empty($this->request->input('address'))? null : $this->request->input('address'),
-            'latitude_301'              => empty($this->request->input('latitude'))? null : $this->request->input('latitude'),
-            'longitude_301'             => empty($this->request->input('longitude'))? null : $this->request->input('longitude'),
+            'cp_301'                    => $this->request->has('cp')? $this->request->input('cp') : null,
+            'locality_301'              => $this->request->has('locality')? $this->request->input('locality') : null,
+            'address_301'               => $this->request->has('address')? $this->request->input('address') : null,
+            'latitude_301'              => $this->request->has('latitude')? $this->request->input('latitude') : null,
+            'longitude_301'             => $this->request->has('longitude')? $this->request->input('longitude') : null,
         ];
 
         if($parameters['specialRules']['emailRule'])  $customer['email_301']      = $this->request->input('email');
