@@ -92,6 +92,39 @@ class Customer extends Model implements AuthenticatableContract, AuthorizableCon
             ->orderBy('001_016_attachment.sorting_016');
     }
 
+
+    public function getIdentifierName()
+    {
+        $value  = '';
+        $flag   = false;
+
+        if(! empty($this->name_301))
+        {
+            $value .= $this->name_301;
+            $flag   = true;
+        }
+
+        if(! empty($this->surname_301))
+        {
+            if($flag)
+                $value .= ' ';
+            else
+                $flag   = true;
+
+            $value .= $this->surname_301;
+        }
+
+        if(! empty($this->company_301))
+        {
+            if($flag)
+                $value .= ' (' . $this->company_301 . ')';
+            else
+                $value .= $this->company_301;
+        }
+
+        return $value;
+    }
+
     /**
      * Get the unique identifier for the user.
      *
