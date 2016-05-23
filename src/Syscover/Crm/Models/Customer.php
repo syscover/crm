@@ -92,7 +92,11 @@ class Customer extends Model implements AuthenticatableContract, AuthorizableCon
             ->orderBy('001_016_attachment.sorting_016');
     }
 
-
+    /**
+     * Get name concatenating, name, surname and company name
+     *
+     * @return string
+     */
     public function getIdentifierName()
     {
         $value  = '';
