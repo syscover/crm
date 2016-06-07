@@ -11,17 +11,17 @@
                     'displayStart' : {{ $offset }},
                     'columnDefs': [
                         @if(isset($modal) && $modal)
-                        { 'sortable': false, 'targets': [7]},
-                        { 'class': 'align-center', 'targets': [5,6,7]}
+                        { 'sortable': false, 'targets': [8]},
+                        { 'class': 'align-center', 'targets': [6,7,8]}
                         @else
-                        { 'sortable': false, 'targets': [7,8]},
-                        { 'class': 'checkbox-column', 'targets': [7]},
-                        { 'class': 'align-center', 'targets': [5,6,8]}
+                        { 'sortable': false, 'targets': [8,9]},
+                        { 'class': 'checkbox-column', 'targets': [8]},
+                        { 'class': 'align-center', 'targets': [6,7,9]}
                         @endif
                     ],
-                    "processing": true,
-                    "serverSide": true,
-                    "ajax": "{{ route('jsonData' . ucfirst($routeSuffix), ['modal' => $modal? 1 : 0]) }}"
+                    'processing': true,
+                    'serverSide': true,
+                    'ajax': "{{ route('jsonData' . ucfirst($routeSuffix), ['modal' => $modal? 1 : 0]) }}"
                 }).fnSetFilteringDelay();
             }
         });
@@ -33,6 +33,7 @@
     <!-- crm::customer.index -->
     <tr>
         <th data-hide="phone,tablet">ID.</th>
+        <th data-hide="phone">{{ trans('pulsar::pulsar.company') }}</th>
         <th data-class="expand">{{ trans('pulsar::pulsar.name') }}</th>
         <th data-hide="phone">{{ trans('pulsar::pulsar.surname') }}</th>
         <th data-hide="phone">{{ trans('pulsar::pulsar.email') }}</th>
