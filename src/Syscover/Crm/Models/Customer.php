@@ -15,7 +15,7 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
  * Class Customer
  *
  * Model with properties
- * <br><b>[id, lang, group, date, company, tin, gender, treatment, state, name, surname, avatar, birth_date, email, phone, mobile, user, password, active, confirmed, country, territorial_area_1, territorial_area_2, territorial_area_3, cp, locality, address, latitude, longitude, custom_field_group, data]</b>
+ * <br><b>[id, lang_id, group_id, date, company, tin, gender, treatment, state, name, surname, avatar, birth_date, email, phone, mobile, user, password, active, confirmed, country_id, territorial_area_1_id, territorial_area_2_id, territorial_area_3_id, cp, locality, address, latitude, longitude, custom_field_group_id, data]</b>
  *
  * @package     Syscover\Crm\Models
  */
@@ -25,11 +25,12 @@ class Customer extends Model implements AuthenticatableContract, AuthorizableCon
     use Authenticatable, Authorizable, CanResetPassword;
     use Eloquence, Mappable;
 
+    protected $package      = 'crm';
 	protected $table        = '009_301_customer';
     protected $primaryKey   = 'id_301';
     protected $suffix       = '301';
     public $timestamps      = false;
-    protected $fillable     = ['id_301', 'lang_301', 'group_301', 'date_301', 'company_301', 'tin_301', 'gender_301', 'treatment_301', 'state_301', 'name_301', 'surname_301', 'avatar_301', 'birth_date_301', 'email_301', 'phone_301', 'mobile_301', 'user_301', 'password_301', 'active_301', 'confirmed_301', 'country_301', 'territorial_area_1_301', 'territorial_area_2_301', 'territorial_area_3_301', 'cp_301', 'locality_301', 'address_301', 'latitude_301', 'longitude_301', 'custom_field_group_301', 'data_301'];
+    protected $fillable     = ['id_301', 'lang_id_301', 'group_id_301', 'date_301', 'company_301', 'tin_301', 'gender_301', 'treatment_301', 'state_301', 'name_301', 'surname_301', 'avatar_301', 'birth_date_301', 'email_301', 'phone_301', 'mobile_301', 'user_301', 'password_301', 'active_301', 'confirmed_301', 'country_id_301', 'territorial_area_1_id_301', 'territorial_area_2_id_301', 'territorial_area_3_id_301', 'cp_301', 'locality_301', 'address_301', 'latitude_301', 'longitude_301', 'custom_field_group_id_301', 'data_301'];
     protected $hidden       = ['password_301', 'remember_token_301'];
     protected $maps         = [];
     protected $relationMaps = [
@@ -54,8 +55,8 @@ class Customer extends Model implements AuthenticatableContract, AuthorizableCon
 
     public function scopeBuilder($query)
     {
-        return $query->join('001_001_lang', '009_301_customer.lang_301', '=', '001_001_lang.id_001')
-            ->leftJoin('009_300_group', '009_301_customer.group_301', '=', '009_300_group.id_300');
+        return $query->join('001_001_lang', '009_301_customer.lang_id_301', '=', '001_001_lang.id_001')
+            ->leftJoin('009_300_group', '009_301_customer.group_id_301', '=', '009_300_group.id_300');
     }
 
     /**

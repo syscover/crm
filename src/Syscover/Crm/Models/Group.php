@@ -18,6 +18,7 @@ class Group extends Model
 {
     use Eloquence, Mappable;
 
+    protected $package      = 'crm';
 	protected $table        = '009_300_group';
     protected $primaryKey   = 'id_300';
     protected $suffix       = '300';

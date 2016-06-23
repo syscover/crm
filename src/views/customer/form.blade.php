@@ -51,10 +51,10 @@
                 useSeparatorHighlight:      true,
                 textSeparatorHighlight:     '------------------',
 
-                countryValue:               '{{ old('country', isset($object)? $object->country_301 : null) }}',
-                territorialArea1Value:      '{{ old('territorialArea1', isset($object)? $object->territorial_area_1_301 : null) }}',
-                territorialArea2Value:      '{{ old('territorialArea2', isset($object)? $object->territorial_area_2_301 : null) }}',
-                territorialArea3Value:      '{{ old('territorialArea3', isset($object)? $object->territorial_area_3_301 : null) }}'
+                countryValue:               '{{ old('country', isset($object)? $object->country_id_301 : null) }}',
+                territorialArea1Value:      '{{ old('territorialArea1', isset($object)? $object->territorial_area_1_id_301 : null) }}',
+                territorialArea2Value:      '{{ old('territorialArea2', isset($object)? $object->territorial_area_2_id_301 : null) }}',
+                territorialArea3Value:      '{{ old('territorialArea3', isset($object)? $object->territorial_area_3_id_301 : null) }}'
             });
 
             $.mapPoint({
@@ -115,7 +115,7 @@
         'label' => trans_choice('pulsar::pulsar.language', 1),
         'fileSize' => 5,
         'name' => 'lang',
-        'value' => old('lang', isset($object->lang_301)? $object->lang_301 : null),
+        'value' => old('lang', isset($object->lang_id_301)? $object->lang_id_301 : null),
         'required' => true,
         'objects' => $langs,
         'idSelect' => 'id_001',
@@ -129,7 +129,7 @@
                 'id' => 'group',
                 'label' => trans_choice('pulsar::pulsar.group', 1),
                 'name' => 'group',
-                'value' => (int) old('group', isset($object->group_301)? $object->group_301 : null),
+                'value' => (int) old('group', isset($object->group_id_301)? $object->group_id_301 : null),
                 'objects' => $groups,
                 'idSelect' => 'id_300',
                 'nameSelect' => 'name_300',

@@ -91,8 +91,8 @@ class CustomerController extends Controller
     public function storeCustomRecord($parameters)
     {
         $customer = Customer::create([
-            'lang_301'                  => $this->request->input('lang'),
-            'group_301'                 => $this->request->input('group'),
+            'lang_id_301'               => $this->request->input('lang'),
+            'group_id_301'              => $this->request->input('group'),
             'date_301'                  => $this->request->has('date')? \DateTime::createFromFormat(config('pulsar.datePattern'), $this->request->input('date'))->getTimestamp() : null,
             'company_301'               => $this->request->has('company')? $this->request->input('company') : null,
             'tin_301'                   => $this->request->has('tin')? $this->request->input('tin') : null,
@@ -110,10 +110,10 @@ class CustomerController extends Controller
             'password_301'              => Hash::make($this->request->input('password')),
             'active_301'                => $this->request->has('active'),
             'confirmed_301'             => false,
-            'country_301'               => $this->request->has('country')? $this->request->input('country') : null,
-            'territorial_area_1_301'    => $this->request->has('territorialArea1')? $this->request->input('territorialArea1') : null,
-            'territorial_area_2_301'    => $this->request->has('territorialArea2')? $this->request->input('territorialArea2') : null,
-            'territorial_area_3_301'    => $this->request->has('territorialArea3')? $this->request->input('territorialArea3') : null,
+            'country_id_301'            => $this->request->has('country')? $this->request->input('country') : null,
+            'territorial_area_1_id_301' => $this->request->has('territorialArea1')? $this->request->input('territorialArea1') : null,
+            'territorial_area_2_id_301' => $this->request->has('territorialArea2')? $this->request->input('territorialArea2') : null,
+            'territorial_area_3_id_301' => $this->request->has('territorialArea3')? $this->request->input('territorialArea3') : null,
             'cp_301'                    => $this->request->has('cp')? $this->request->input('cp') : null,
             'locality_301'              => $this->request->has('locality')? $this->request->input('locality') : null,
             'address_301'               => $this->request->has('address')? $this->request->input('address') : null,
@@ -171,8 +171,8 @@ class CustomerController extends Controller
     public function updateCustomRecord($parameters)
     {
         $customer = [
-            'lang_301'                  => $this->request->input('lang'),
-            'group_301'                 => $this->request->input('group'),
+            'lang_id_301'               => $this->request->input('lang'),
+            'group_id_301'              => $this->request->input('group'),
             'date_301'                  => $this->request->has('date')? \DateTime::createFromFormat(config('pulsar.datePattern'), $this->request->input('date'))->getTimestamp() : null,
             'company_301'               => $this->request->has('company')? $this->request->input('company') : null,
             'tin_301'                   => $this->request->has('tin')? $this->request->input('tin') : null,
@@ -186,10 +186,10 @@ class CustomerController extends Controller
             'phone_301'                 => $this->request->has('phone')? $this->request->input('phone') : null,
             'mobile_301'                => $this->request->has('mobile')? $this->request->input('mobile') : null,
             'active_301'                => $this->request->has('active'),
-            'country_301'               => $this->request->has('country')? $this->request->input('country') : null,
-            'territorial_area_1_301'    => $this->request->has('territorialArea1')? $this->request->input('territorialArea1') : null,
-            'territorial_area_2_301'    => $this->request->has('territorialArea2')? $this->request->input('territorialArea2') : null,
-            'territorial_area_3_301'    => $this->request->has('territorialArea3')? $this->request->input('territorialArea3') : null,
+            'country_id_301'            => $this->request->has('country')? $this->request->input('country') : null,
+            'territorial_area_1_id_301' => $this->request->has('territorialArea1')? $this->request->input('territorialArea1') : null,
+            'territorial_area_2_id_301' => $this->request->has('territorialArea2')? $this->request->input('territorialArea2') : null,
+            'territorial_area_3_id_301' => $this->request->has('territorialArea3')? $this->request->input('territorialArea3') : null,
             'cp_301'                    => $this->request->has('cp')? $this->request->input('cp') : null,
             'locality_301'              => $this->request->has('locality')? $this->request->input('locality') : null,
             'address_301'               => $this->request->has('address')? $this->request->input('address') : null,
