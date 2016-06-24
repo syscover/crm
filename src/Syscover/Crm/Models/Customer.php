@@ -38,7 +38,6 @@ class Customer extends Model implements AuthenticatableContract, AuthorizableCon
     ];
     private static $rules   = [
         'name'      => 'required|between:2,255',
-        'lang'      => 'required',
         'email'     => 'required|between:2,255|email|unique:009_301_customer,email_301',
         'user'      => 'required|between:2,255|unique:009_301_customer,user_301',
         'password'  => 'required|between:4,50|same:repassword'
@@ -55,7 +54,7 @@ class Customer extends Model implements AuthenticatableContract, AuthorizableCon
 
     public function scopeBuilder($query)
     {
-        return $query->join('001_001_lang', '009_301_customer.lang_id_301', '=', '001_001_lang.id_001')
+        return $query->leftJoin('001_001_lang', '009_301_customer.lang_id_301', '=', '001_001_lang.id_001')
             ->leftJoin('009_300_group', '009_301_customer.group_id_301', '=', '009_300_group.id_300');
     }
 

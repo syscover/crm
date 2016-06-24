@@ -116,7 +116,6 @@
         'fileSize' => 5,
         'name' => 'lang',
         'value' => old('lang', isset($object->lang_id_301)? $object->lang_id_301 : null),
-        'required' => true,
         'objects' => $langs,
         'idSelect' => 'id_001',
         'nameSelect' => 'name_001'

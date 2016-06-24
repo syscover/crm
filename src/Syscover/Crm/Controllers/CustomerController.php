@@ -91,7 +91,7 @@ class CustomerController extends Controller
     public function storeCustomRecord($parameters)
     {
         $customer = Customer::create([
-            'lang_id_301'               => $this->request->input('lang'),
+            'lang_id_301'               => $this->request->has('lang')? $this->request->input('lang') : null,
             'group_id_301'              => $this->request->input('group'),
             'date_301'                  => $this->request->has('date')? \DateTime::createFromFormat(config('pulsar.datePattern'), $this->request->input('date'))->getTimestamp() : null,
             'company_301'               => $this->request->has('company')? $this->request->input('company') : null,
@@ -171,7 +171,7 @@ class CustomerController extends Controller
     public function updateCustomRecord($parameters)
     {
         $customer = [
-            'lang_id_301'               => $this->request->input('lang'),
+            'lang_id_301'               => $this->request->has('lang')? $this->request->input('lang') : null,
             'group_id_301'              => $this->request->input('group'),
             'date_301'                  => $this->request->has('date')? \DateTime::createFromFormat(config('pulsar.datePattern'), $this->request->input('date'))->getTimestamp() : null,
             'company_301'               => $this->request->has('company')? $this->request->input('company') : null,

@@ -18,7 +18,7 @@ class CrmCreateTableCustomer extends Migration {
                 $table->engine = 'InnoDB';
 
                 $table->increments('id_301')->unsigned();
-                $table->string('lang_id_301', 2);
+                $table->string('lang_id_301', 2)->nullable();
                 $table->string('remember_token_301')->nullable();
                 $table->integer('group_id_301')->unsigned();
                 $table->integer('date_301');

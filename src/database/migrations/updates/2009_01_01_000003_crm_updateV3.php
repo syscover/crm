@@ -25,8 +25,8 @@ class CrmUpdateV3 extends Migration
 		// change territorial_area_3_301
 		DBLibrary::changeColumnNameWithForeignKey('009_301_customer', 'territorial_area_3_301', 'territorial_area_3_id_301', 'VARCHAR', 10, false, true, 'fk05_012_301_customer', '001_005_territorial_area_3', 'id_005');
 		// change lang_301
-		DBLibrary::changeColumnNameWithForeignKey('009_301_customer', 'lang_301', 'lang_id_301', 'VARCHAR', 2, false, false, 'fk06_012_301_customer', '001_001_lang', 'id_001');
-		// change lang_301
+		DBLibrary::changeColumnNameWithForeignKey('009_301_customer', 'lang_301', 'lang_id_301', 'VARCHAR', 2, false, true, 'fk06_012_301_customer', '001_001_lang', 'id_001');
+		// change custom_field_group_301
 		DBLibrary::changeColumnNameWithForeignKey('009_301_customer', 'custom_field_group_301', 'custom_field_group_id_301', 'INT', 10, true, true, 'fk07_012_301_customer', '001_025_field_group', 'id_025');
 	}
 
