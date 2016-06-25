@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Support\Facades\DB;
 use Syscover\Pulsar\Libraries\DBLibrary;
 
 class CrmUpdateV3 extends Migration
