@@ -65,7 +65,7 @@ class Customer extends Model implements AuthenticatableContract, AuthorizableCon
      */
     public function getLang()
     {
-        return $this->belongsTo('Syscover\Pulsar\Models\Lang', 'lang_355');
+        return $this->belongsTo('Syscover\Pulsar\Models\Lang', 'lang_id_355');
     }
 
     /**
