@@ -25,8 +25,8 @@ class CrmCreateTableCustomer extends Migration {
                 $table->string('company_301')->nullable();
                 $table->string('tin_301')->nullable();
                 $table->boolean('gender_301')->nullable();
-                $table->tinyInteger('treatment_301')->unsigned()->nullable();
-                $table->tinyInteger('state_301')->unsigned()->nullable();
+                $table->tinyInteger('treatment_id_301')->unsigned()->nullable();
+                $table->tinyInteger('state_id_301')->unsigned()->nullable();
                 $table->string('name_301')->nullable();
                 $table->string('surname_301')->nullable();
                 $table->string('avatar_301')->nullable();

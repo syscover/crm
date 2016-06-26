@@ -205,7 +205,7 @@
                 'fieldSize' => 8,
                 'label' => trans_choice('pulsar::pulsar.state', 1),
                 'name' => 'state',
-                'value' => old('state', isset($object->state_301)? $object->state_301 : null),
+                'value' => old('state', isset($object->state_id_301)? $object->state_id_301 : null),
                 'objects' => $states,
                 'idSelect' => 'id',
                 'nameSelect' => 'name'
@@ -217,7 +217,7 @@
                 'fieldSize' => 8,
                 'label' => trans_choice('pulsar::pulsar.treatment', 1),
                 'name' => 'treatment',
-                'value' => old('treatment', isset($object->treatment_301)? $object->treatment_301 : null),
+                'value' => old('treatment', isset($object->treatment_id_301)? $object->treatment_id_301 : null),
                 'objects' => $treatments,
                 'idSelect' => 'id',
                 'nameSelect' => 'name'
