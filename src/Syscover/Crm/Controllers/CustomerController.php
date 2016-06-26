@@ -73,7 +73,7 @@ class CustomerController extends Controller
             return $object;
         }, config('pulsar.states'));
 
-        $parameters['attachmentFamilies']   = AttachmentFamily::getAttachmentFamilies(['resource_015' => 'cms-article']);
+        $parameters['attachmentFamilies']   = AttachmentFamily::getAttachmentFamilies(['resource_id_015' => 'cms-article']);
         $parameters['attachmentsInput']     = json_encode([]);
 
         if(isset($parameters['id']))
@@ -151,7 +151,7 @@ class CustomerController extends Controller
         $attachments = AttachmentLibrary::getRecords('crm', 'crm-customer', $parameters['object']->id_301, base_lang()->id_001);
 
         // merge parameters and attachments array
-        $parameters['attachmentFamilies']   = AttachmentFamily::getAttachmentFamilies(['resource_015' => 'cms-article']);
+        $parameters['attachmentFamilies']   = AttachmentFamily::getAttachmentFamilies(['resource_id_015' => 'cms-article']);
         $parameters                         = array_merge($parameters, $attachments);
 
         return $parameters;
