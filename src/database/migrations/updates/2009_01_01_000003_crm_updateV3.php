@@ -26,7 +26,7 @@ class CrmUpdateV3 extends Migration
 		// change lang_301
 		DBLibrary::renameColumnWithForeignKey('009_301_customer', 'lang_301', 'lang_id_301', 'VARCHAR', 2, false, true, 'fk06_012_301_customer', '001_001_lang', 'id_001');
 		// change custom_field_group_301
-		DBLibrary::renameColumnWithForeignKey('009_301_customer', 'custom_field_group_301', 'custom_field_group_id_301', 'INT', 10, true, true, 'fk07_012_301_customer', '001_025_field_group', 'id_025');
+		DBLibrary::renameColumnWithForeignKey('009_301_customer', 'custom_field_group_301', 'field_group_id_301', 'INT', 10, true, true, 'fk07_012_301_customer', '001_025_field_group', 'id_025');
 	}
 
 	/**

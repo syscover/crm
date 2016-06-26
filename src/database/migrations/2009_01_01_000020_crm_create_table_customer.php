@@ -52,7 +52,7 @@ class CrmCreateTableCustomer extends Migration {
                 $table->string('latitude_301')->nullable();
                 $table->string('longitude_301')->nullable();
 
-                $table->integer('custom_field_group_id_301')->unsigned()->nullable();
+                $table->integer('field_group_id_301')->unsigned()->nullable();
 
                 $table->text('data_301')->nullable();
 
@@ -68,7 +68,7 @@ class CrmCreateTableCustomer extends Migration {
                     ->onDelete('restrict')->onUpdate('cascade');
                 $table->foreign('lang_id_301', 'fk06_012_301_customer')->references('id_001')->on('001_001_lang')
                     ->onDelete('restrict')->onUpdate('cascade');
-                $table->foreign('custom_field_group_id_301', 'fk07_012_301_customer')->references('id_025')->on('001_025_field_group')
+                $table->foreign('field_group_id_301', 'fk07_012_301_customer')->references('id_025')->on('001_025_field_group')
                     ->onDelete('restrict')->onUpdate('cascade');
             });
         }
