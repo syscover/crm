@@ -51,25 +51,44 @@ class CrmCreateTableCustomer extends Migration {
                 $table->string('address_301')->nullable();
                 $table->string('latitude_301')->nullable();
                 $table->string('longitude_301')->nullable();
-
                 $table->integer('field_group_id_301')->unsigned()->nullable();
-
                 $table->text('data_301')->nullable();
 
-                $table->foreign('group_id_301', 'fk01_012_301_customer')->references('id_300')->on('009_300_group')
-                    ->onDelete('restrict')->onUpdate('cascade');
-                $table->foreign('country_id_301', 'fk02_012_301_customer')->references('id_002')->on('001_002_country')
-                    ->onDelete('restrict')->onUpdate('cascade');
-                $table->foreign('territorial_area_1_id_301', 'fk03_012_301_customer')->references('id_003')->on('001_003_territorial_area_1')
-                    ->onDelete('restrict')->onUpdate('cascade');
-                $table->foreign('territorial_area_2_id_301', 'fk04_012_301_customer')->references('id_004')->on('001_004_territorial_area_2')
-                    ->onDelete('restrict')->onUpdate('cascade');
-                $table->foreign('territorial_area_3_id_301', 'fk05_012_301_customer')->references('id_005')->on('001_005_territorial_area_3')
-                    ->onDelete('restrict')->onUpdate('cascade');
-                $table->foreign('lang_id_301', 'fk06_012_301_customer')->references('id_001')->on('001_001_lang')
-                    ->onDelete('restrict')->onUpdate('cascade');
-                $table->foreign('field_group_id_301', 'fk07_012_301_customer')->references('id_025')->on('001_025_field_group')
-                    ->onDelete('restrict')->onUpdate('cascade');
+                $table->foreign('group_id_301', 'fk01_012_301_customer')
+                    ->references('id_300')
+                    ->on('009_300_group')
+                    ->onDelete('restrict')
+                    ->onUpdate('cascade');
+                $table->foreign('country_id_301', 'fk02_012_301_customer')
+                    ->references('id_002')
+                    ->on('001_002_country')
+                    ->onDelete('restrict')
+                    ->onUpdate('cascade');
+                $table->foreign('territorial_area_1_id_301', 'fk03_012_301_customer')
+                    ->references('id_003')
+                    ->on('001_003_territorial_area_1')
+                    ->onDelete('restrict')
+                    ->onUpdate('cascade');
+                $table->foreign('territorial_area_2_id_301', 'fk04_012_301_customer')
+                    ->references('id_004')
+                    ->on('001_004_territorial_area_2')
+                    ->onDelete('restrict')
+                    ->onUpdate('cascade');
+                $table->foreign('territorial_area_3_id_301', 'fk05_012_301_customer')
+                    ->references('id_005')
+                    ->on('001_005_territorial_area_3')
+                    ->onDelete('restrict')
+                    ->onUpdate('cascade');
+                $table->foreign('lang_id_301', 'fk06_012_301_customer')
+                    ->references('id_001')
+                    ->on('001_001_lang')
+                    ->onDelete('restrict')
+                    ->onUpdate('cascade');
+                $table->foreign('field_group_id_301', 'fk07_012_301_customer')
+                    ->references('id_025')
+                    ->on('001_025_field_group')
+                    ->onDelete('restrict')
+                    ->onUpdate('cascade');
             });
         }
     }
