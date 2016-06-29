@@ -75,7 +75,7 @@ class Customer extends Model implements AuthenticatableContract, AuthorizableCon
      */
     public function getGroup()
     {
-        return $this->belongsTo(Group::class, 'group_301');
+        return $this->belongsTo(Group::class, 'group_id_301');
     }
 
     /**
