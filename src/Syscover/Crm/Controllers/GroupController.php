@@ -13,7 +13,7 @@ class GroupController extends Controller
     protected $routeSuffix  = 'crmGroup';
     protected $folder       = 'group';
     protected $package      = 'crm';
-    protected $indexColumns     = ['id_300', 'name_300'];
+    protected $indexColumns = ['id_300', 'name_300'];
     protected $nameM        = 'name_300';
     protected $model        = Group::class;
     protected $icon         = 'fa fa-users';
