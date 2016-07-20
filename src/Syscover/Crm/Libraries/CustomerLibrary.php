@@ -37,16 +37,20 @@ class CustomerLibrary
      *
      * @param $request
      * @return static
+     * @throws \Exception
      */
     public static function createCustomer($request)
     {
+        if(! $request->has('email'))
+            throw new \Exception('You have to define an email field to record a user');
+
         $customer = Customer::create([
             'lang_id_301'               => $request->has('langId')? $request->input('langId') : null,
             'group_id_301'              => $request->has('groupId')? $request->input('groupId') : null,
             'date_301'                  => $request->has('date')? $request->input('date') : date('U'),
             'company_301'               => $request->has('company')? $request->input('company') : null,
             'tin_301'                   => $request->has('tin')? $request->input('tin') : null,
-            'gender_id_301'             => $request->has('gender'),
+            'gender_id_301'             => $request->has('gender')? $request->input('gender') : null,
             'treatment_id_301'          => $request->has('treatment')? $request->input('treatment') : null,
             'state_id_301'              => $request->has('stateId')? $request->input('stateId') : null,
             'name_301'                  => $request->has('name')? ucwords(strtolower($request->input('name'))) : null,
@@ -66,11 +70,12 @@ class CustomerLibrary
             'address_301'               => $request->has('address')? $request->input('address') : null
         ]);
 
+
         $contact = Contact::create([
             'company_041'               => $request->has('company')? $request->input('company') : null,
-            'name_041'                  => ucwords(strtolower($request->input('name'))),
-            'surname_041'               => ucwords(strtolower($request->input('surname'))),
-            'birth_date_041'            => empty($request->has('birthDate_submit'))? null : \DateTime::createFromFormat(config('pulsar.datePattern'), $request->input('birthDate_submit'))->getTimestamp(),
+            'name_041'                  => $request->has('name')? ucwords(strtolower($request->input('name'))) : null,
+            'surname_041'               => $request->has('surname')? ucwords(strtolower($request->input('surname'))) : null,
+            'birth_date_041'            => $request->has('birthDate')? \DateTime::createFromFormat(config('pulsar.datePattern'), $request->input('birthDate'))->getTimestamp() : null,
             'country_id_041'            => $request->input('country'),
             'prefix_041'                => null,
             'mobile_041'                => null,
