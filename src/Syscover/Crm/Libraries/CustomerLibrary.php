@@ -17,7 +17,7 @@ class CustomerLibrary
      * date_301 [date]
      * company_301 [company]
      * tin_301 [tin]
-     * gender_301 [gender]
+     * gender_id_301 [gender]
      * treatment_id_301 [treatment]
      * state_id_301 [stateId]
      * name_301 [name]
@@ -46,13 +46,7 @@ class CustomerLibrary
             'date_301'                  => $request->has('date')? $request->input('date') : date('U'),
             'company_301'               => $request->has('company')? $request->input('company') : null,
             'tin_301'                   => $request->has('tin')? $request->input('tin') : null,
-
-
-            //???
-            'gender_301'                => $request->has('gender'),
-
-
-
+            'gender_id_301'             => $request->has('gender'),
             'treatment_id_301'          => $request->has('treatment')? $request->input('treatment') : null,
             'state_id_301'              => $request->has('stateId')? $request->input('stateId') : null,
             'name_301'                  => $request->has('name')? ucwords(strtolower($request->input('name'))) : null,
@@ -99,7 +93,7 @@ class CustomerLibrary
             'group_id_301'              => $request->input('customerType'),
             'company_301'               => empty($request->input('company'))? null : $request->input('company'),
             'tin_301'                   => CustomerLibrary::setTinFromNifTin($request),
-            'gender_301'                => CustomerLibrary::setGenderFromTreatment($request),
+            'gender_id_301'             => CustomerLibrary::setGenderFromTreatment($request),
             'treatment_id_301'          => $request->has('treatment')? $request->input('treatment') : null,
             'state_id_301'              => null,
             'name_301'                  => ucwords(strtolower($request->input('name'))),

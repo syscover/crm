@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Syscover\Pulsar\Libraries\DBLibrary;
 
-class CrmUpdateV4 extends Migration
+class CrmUpdateV5 extends Migration
 {
 /**
  * Run the migrations.
@@ -13,10 +13,8 @@ class CrmUpdateV4 extends Migration
 	public function up()
 	{
 		// rename columns
-		// treatment_301
-		DBLibrary::renameColumn('009_301_customer', 'treatment_301', 'treatment_id_301', 'TINYINT', 3, true, true);
-		// state_301
-		DBLibrary::renameColumn('009_301_customer', 'state_301', 'state_id_301', 'TINYINT', 3, true, true);
+		// gender_301
+		DBLibrary::renameColumn('009_301_customer', 'gender_301', 'gender_id_301', 'TINYINT', 3, true, true);
 	}
 
 	/**

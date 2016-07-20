@@ -15,7 +15,7 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
  * Class Customer
  *
  * Model with properties
- * <br><b>[id, lang_id, group_id, date, company, tin, gender, treatment_id, state_id, name, surname, avatar, birth_date, email, phone, mobile, user, password, active, confirmed, country_id, territorial_area_1_id, territorial_area_2_id, territorial_area_3_id, cp, locality, address, latitude, longitude, field_group_id, data]</b>
+ * <br><b>[id, lang_id, group_id, date, company, tin, gender_id, treatment_id, state_id, name, surname, avatar, birth_date, email, phone, mobile, user, password, active, confirmed, country_id, territorial_area_1_id, territorial_area_2_id, territorial_area_3_id, cp, locality, address, latitude, longitude, field_group_id, data]</b>
  *
  * @package     Syscover\Crm\Models
  */
@@ -30,7 +30,7 @@ class Customer extends Model implements AuthenticatableContract, AuthorizableCon
     protected $primaryKey   = 'id_301';
     protected $suffix       = '301';
     public $timestamps      = false;
-    protected $fillable     = ['id_301', 'lang_id_301', 'group_id_301', 'date_301', 'company_301', 'tin_301', 'gender_301', 'treatment_id_301', 'state_id_301', 'name_301', 'surname_301', 'avatar_301', 'birth_date_301', 'email_301', 'phone_301', 'mobile_301', 'user_301', 'password_301', 'active_301', 'confirmed_301', 'country_id_301', 'territorial_area_1_id_301', 'territorial_area_2_id_301', 'territorial_area_3_id_301', 'cp_301', 'locality_301', 'address_301', 'latitude_301', 'longitude_301', 'field_group_id_301', 'data_301'];
+    protected $fillable     = ['id_301', 'lang_id_301', 'group_id_301', 'date_301', 'company_301', 'tin_301', 'gender_id_301', 'treatment_id_301', 'state_id_301', 'name_301', 'surname_301', 'avatar_301', 'birth_date_301', 'email_301', 'phone_301', 'mobile_301', 'user_301', 'password_301', 'active_301', 'confirmed_301', 'country_id_301', 'territorial_area_1_id_301', 'territorial_area_2_id_301', 'territorial_area_3_id_301', 'cp_301', 'locality_301', 'address_301', 'latitude_301', 'longitude_301', 'field_group_id_301', 'data_301'];
     protected $hidden       = ['password_301', 'remember_token_301'];
     protected $maps         = [];
     protected $relationMaps = [

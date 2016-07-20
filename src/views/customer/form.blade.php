@@ -195,7 +195,7 @@
                 'fieldSize' => 8,
                 'label' => trans('pulsar::pulsar.gender'),
                 'name' => 'gender',
-                'value' => old('gender', isset($object->gender_301)? $object->gender_301 : null),
+                'value' => old('gender', isset($object->gender_id_301)? $object->gender_id_301 : null),
                 'objects' => $genres,
                 'idSelect' => 'id',
                 'nameSelect' => 'name'
