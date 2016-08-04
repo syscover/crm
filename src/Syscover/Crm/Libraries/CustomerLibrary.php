@@ -49,7 +49,7 @@ class CustomerLibrary
 
         $customer = Customer::create([
             'lang_id_301'               => $request->has('langId')? $request->input('langId') : null,
-            'group_id_301'              => $request->has('groupId')? $request->input('groupId') : null,
+            'group_id_301'              => $request->input('groupId'),
             'date_301'                  => $request->has('date')? \DateTime::createFromFormat(config('pulsar.datePattern'), $request->input('date'))->getTimestamp() : date('U'),
             'company_301'               => $request->has('company')? $request->input('company') : null,
             'tin_301'                   => $request->has('tin')? $request->input('tin') : null,
@@ -142,7 +142,6 @@ class CustomerLibrary
             'phone_301'                 => $request->has('phone')? $request->input('phone') : null,
             'mobile_301'                => $request->has('mobile')? $request->input('mobile') : null,
             'user_301'                  => $request->has('user')? $request->input('user') : strtolower($request->input('email')),
-            'password_301'              => $request->has('password')? Hash::make($request->input('password')) : Miscellaneous::randomStr(8),
             'active_301'                => $request->has('active'),
             'confirmed_301'             => false,
             'country_id_301'            => $request->has('country')? $request->input('country') : null,
