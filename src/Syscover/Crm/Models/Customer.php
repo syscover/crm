@@ -43,6 +43,43 @@ class Customer extends Model implements AuthenticatableContract, AuthorizableCon
         'password'  => 'required|between:4,50|same:repassword'
     ];
 
+    // custom properties
+    protected $classTax = null;
+
+    /**
+     * Dynamically access route parameters.
+     *
+     * @param  string  $key
+     * @return mixed
+     */
+    public function __get($key)
+    {
+        if($key === 'classTax' || $key === 'class_tax' || $key === 'class_tax_111')
+        {
+            return $this->classTax;
+        }
+
+        // call parent method in model
+        return parent::getAttribute($key);
+    }
+
+    /**
+     * Dynamically set attributes on the model.
+     *
+     * @param  string  $key
+     * @param  mixed  $value
+     * @return void
+     */
+    public function __set($key, $value)
+    {
+        if($key === 'classTax' || $key === 'class_tax' || $key === 'class_tax_111')
+        {
+            $this->classTax = $value;
+        }
+
+        parent::setAttribute($key, $value);
+    }
+
     public static function validate($data, $specialRules)
     {
         if(isset($specialRules['emailRule']) && $specialRules['emailRule']) static::$rules['email'] = 'required|between:2,255|email';
