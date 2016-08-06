@@ -43,7 +43,7 @@ class Customer extends Model implements AuthenticatableContract, AuthorizableCon
         'password'  => 'required|between:4,50|same:repassword'
     ];
 
-    // custom properties
+    // custom properties, class tas for this customer
     protected $classTax = null;
 
     /**
