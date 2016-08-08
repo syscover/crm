@@ -35,7 +35,7 @@
     @include('pulsar::includes.js.attachment', [
         'resource'          => 'crm-customer',
         'routesConfigFile'  => 'crm',
-        'lang'              => session('baseLang'),
+        'lang'              => base_lang(),
         'objectId'          => isset($object)? $object->id_301 : null])
 
     <script>

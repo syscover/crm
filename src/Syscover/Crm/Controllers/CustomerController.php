@@ -79,7 +79,7 @@ class CustomerController extends Controller
         if(isset($parameters['id']))
         {
             // get attachments from base lang
-            $attachments = AttachmentLibrary::getRecords($this->package, 'cms-article', $parameters['id'], session('baseLang')->id_001, true);
+            $attachments = AttachmentLibrary::getRecords($this->package, 'cms-article', $parameters['id'], base_lang()->id_001, true);
 
             // merge parameters and attachments array
             $parameters  = array_merge($parameters, $attachments);
