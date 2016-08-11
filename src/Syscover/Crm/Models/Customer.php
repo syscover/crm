@@ -59,6 +59,12 @@ class Customer extends Model implements AuthenticatableContract, AuthorizableCon
             return $this->classTax;
         }
 
+        // check if property is mapped
+        if(isset($this->maps[$key]))
+        {
+            return $this->{$this->maps[$key]};
+        }
+
         // call parent method in model
         return parent::getAttribute($key);
     }
