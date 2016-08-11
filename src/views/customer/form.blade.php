@@ -27,7 +27,7 @@
     <script src="{{ asset('packages/syscover/pulsar/vendor/datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
     <script src="{{ asset('packages/syscover/pulsar/vendor/mappoint/js/jquery.mappoint.js') }}"></script>
     <script src="{{ asset('packages/syscover/pulsar/plugins/bootstrap-switch/bootstrap-switch.min.js') }}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key={{ config('google_api.googleMapsApiKey') }}&libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ config('googleApi.googleMapsApiKey') }}&libraries=places"></script>
 
     @include('pulsar::includes.html.froala_references')
 
