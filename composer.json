@@ -1,9 +1,7 @@
 {
     "name": "syscover/crm",
-    "version": "5.2",
     "description": "CRM package",
     "keywords": ["syscover","pulsar","laravel","CRM"],
-    "license": "MIT",
     "authors": [
         {
             "name": "SYSCOVER SL",
