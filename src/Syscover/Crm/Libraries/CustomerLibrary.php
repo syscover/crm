@@ -179,13 +179,13 @@ class CustomerLibrary
         if(! $request->has('id'))
             throw new \Exception('You have to indicate a id customer');
 
-        Customer::where('id_301', $request->input('id'))->update([
-            'password_301' => Hash::make($request->input('password')),
-        ]);
-
         $customer = Customer::builder()->find($request->input('id'));
 
         if($customer === null)
             throw new \Exception('You have to indicate an id of a existing customer');
+
+        Customer::where('id_301', $request->input('id'))->update([
+            'password_301' => Hash::make($request->input('password')),
+        ]);
     }
 }
