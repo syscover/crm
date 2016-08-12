@@ -1,17 +1,19 @@
 # CRM to Laravel 5.2
 
+[![Total Downloads](https://poser.pugx.org/syscover/crm/downloads)](https://packagist.org/packages/syscover/crm)
+
 ## Installation
 
 Before install sycover/crm, you need install syscover/pulsar to load application base
 
 **1 - After install Laravel framework, insert on file composer.json, inside require object this value**
 ```
-"syscover/crm": "dev-master"
+"syscover/crm": "~1.0"
 ```
 
 and execute on console:
 ```
-composer update
+composer install
 ```
 
 **2 - Register service provider, on file config/app.php add to providers array**
