@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Hash;
 use Syscover\Pulsar\Libraries\Miscellaneous;
 use Syscover\Crm\Models\Customer;
 
-class CustomerLibrary
+class CrmLibrary
 {
     /**
      * Function createCustomer
