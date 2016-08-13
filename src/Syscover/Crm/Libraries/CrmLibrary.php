@@ -1,5 +1,6 @@
 <?php namespace Syscover\Crm\Libraries;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Syscover\Pulsar\Libraries\Miscellaneous;
 use Syscover\Crm\Models\Customer;
@@ -42,7 +43,7 @@ class CrmLibrary
      * @return  \Syscover\Crm\Models\Customer   $customer
      * @throws  \Exception
      */
-    public static function createCustomer($request)
+    public static function createCustomer(Request $request)
     {
         if(! $request->has('email'))
             throw new \Exception('You have to define an email field to record a user');
@@ -117,7 +118,7 @@ class CrmLibrary
      * @return  \Syscover\Crm\Models\Customer   $customer
      * @throws  \Exception
      */
-    public static function updateCustomer($request)
+    public static function updateCustomer(Request $request)
     {
         if(! $request->has('id'))
             throw new \Exception('You have to indicate a id customer');
@@ -174,7 +175,7 @@ class CrmLibrary
      * @return  \Syscover\Crm\Models\Customer   $customer
      * @throws  \Exception
      */
-    public static function updatePassword($request)
+    public static function updatePassword(Request $request)
     {
         if(! $request->has('id'))
             throw new \Exception('You have to indicate a id customer');
