@@ -8,7 +8,7 @@ use Syscover\Crm\Models\Customer;
 class CrmLibrary
 {
     /**
-     * Function createCustomer
+     * Function to create a customer
      *
      * Input names to create customer
      *
@@ -83,7 +83,7 @@ class CrmLibrary
     }
 
     /**
-     * Function updateCustomer
+     * Function to update a customer
      *
      * Input names to update customer
      *
