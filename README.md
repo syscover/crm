@@ -10,37 +10,38 @@ Before install sycover/crm, you need install syscover/pulsar to load application
 ```
 "syscover/crm": "~1.0"
 ```
-
 and execute on console:
-```
-composer install
-```
-
-**2 - Register service provider, on file config/app.php add to providers array**
-
-```
-Syscover\Crm\CrmServiceProvider::class,
-
-```
-
-**3 - To publish package and migrate**
-
-and execute composer update again:
 ```
 composer update
 ```
 
-**4 - Run seed database**
-
+**2 - Register service provider, on file config/app.php add to providers array**
 ```
+Syscover\Crm\CrmServiceProvider::class,
+```
+
+**3 - Execute publish command**
+```
+php artisan vendor:publish
+```
+
+**4 - Execute optimize command load new classes**
+```
+php artisan optimize
+```
+
+**5 - And execute migrations and seed database**
+```
+php artisan migrate
 php artisan db:seed --class="CrmTableSeeder"
 ```
 
-**5 - Activate package**
+**6 - Execute command to load all updates**
+```
+php artisan migrate --path=database/migrations/updates
+```
 
-Access to Pulsar Panel, and go to Administration -> Permissions -> Profiles, and set all permissions to your profile by clicking on the open lock.
-
-**6 - to use auth properties, include this arrays in config/auth.php**
+**7 - To use auth properties, include this arrays in config/auth.php**
 
 Inside guards array
 ```
@@ -70,8 +71,16 @@ Inside passwords array
 
 you can change email crmPasswordBroker, to custom appearance.
 
-**7 - How get auth properties**
+**8 - How get auth properties**
 Use crm guard to get auth properties
 ```
 auth('crm')
 ```
+
+
+## Activate Package
+Access to Pulsar Panel, and go to:
+ 
+Administration-> Permissions-> Profiles, and set all permissions to your profile by clicking on the open lock.<br>
+
+Go to Administration -> Packages, edit the package installed and activate it.
