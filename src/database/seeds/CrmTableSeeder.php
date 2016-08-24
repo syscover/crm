@@ -9,8 +9,8 @@ class CrmTableSeeder extends Seeder
     {
         Model::unguard();
 
-        $this->call(CrmPackageTableSeeder::class);
-        $this->call(CrmResourceTableSeeder::class);
+        $this->call(CrmPackageSeeder::class);
+        $this->call(CrmResourceSeeder::class);
         $this->call(CrmAttachmentMimeSeeder::class);
 
         Model::reguard();

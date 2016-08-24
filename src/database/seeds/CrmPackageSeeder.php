@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Syscover\Pulsar\Models\Package;
 
-class CrmPackageTableSeeder extends Seeder
+class CrmPackageSeeder extends Seeder
 {
     public function run()
     {
@@ -15,5 +15,5 @@ class CrmPackageTableSeeder extends Seeder
 
 /*
  * Command to run:
- * php artisan db:seed --class="CrmPackageTableSeeder"
+ * php artisan db:seed --class="CrmPackageSeeder"
  */
