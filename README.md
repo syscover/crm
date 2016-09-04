@@ -1,4 +1,4 @@
-# CRM to Laravel 5.2
+# CRM to Laravel 5.3
 
 [![Total Downloads](https://poser.pugx.org/syscover/crm/downloads)](https://packagist.org/packages/syscover/crm)
 
@@ -8,7 +8,7 @@ Before install sycover/crm, you need install syscover/pulsar to load application
 
 **1 - After install Laravel framework, insert on file composer.json, inside require object this value**
 ```
-"syscover/crm": "~1.0"
+"syscover/crm": "~2.0"
 ```
 and execute on console:
 ```
