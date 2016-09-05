@@ -1,4 +1,7 @@
-@extends('pulsar::layouts.index', ['newTrans' => 'new', 'callback' => 'relatedCustomer'])
+@extends('pulsar::layouts.index', [
+        'newTrans' => 'new',
+        'callback' => 'relatedCustomer'
+    ])
 
 @section('head')
     @parent
@@ -32,7 +35,7 @@
             }
         });
     </script>
-    <!-- /.crm::customer.index -->
+    <!-- /crm::customer.index -->
 @stop
 
 @section('tHead')
@@ -51,5 +54,5 @@
         @endif
         <th>{{ trans_choice('pulsar::pulsar.action', 2) }}</th>
     </tr>
-    <!-- /.crm::customer.index -->
+    <!-- /crm::customer.index -->
 @stop
