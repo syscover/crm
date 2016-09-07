@@ -4,6 +4,7 @@ use Syscover\Pulsar\Core\Model;
 use Sofa\Eloquence\Eloquence;
 use Sofa\Eloquence\Mappable;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Foundation\Auth\Access\Authorizable;
@@ -24,6 +25,7 @@ class Customer extends Model implements AuthenticatableContract, AuthorizableCon
 {
     use Authenticatable, Authorizable, CanResetPassword;
     use Eloquence, Mappable;
+    use Notifiable;
 
     protected $package      = 'crm';
 	protected $table        = '009_301_customer';
