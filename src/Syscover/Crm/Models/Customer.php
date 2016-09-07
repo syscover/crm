@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Syscover\Pulsar\Notifications\ResetPassword as ResetPasswordNotification;
 
 /**
  * Class Customer
@@ -233,6 +234,17 @@ class Customer extends Model implements AuthenticatableContract, AuthorizableCon
     public function getEmailForPasswordReset()
     {
         return $this->email_301;
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
     }
 
     /**
