@@ -38,8 +38,8 @@ class ResetPassword extends Notification
     {
         return (new MailMessage)
             ->view([
-                'email.content.reset-email',
-                'email.content.reset.email-plain',
+                'email.content.reset-password',
+                'email.content.reset-password-plain',
             ])
             ->line(trans('pulsar::pulsar.message_reset_password_notification_01'))
             ->action(trans('pulsar::pulsar.reset_password'), route('showResetForm', ['token' => $this->token]))
