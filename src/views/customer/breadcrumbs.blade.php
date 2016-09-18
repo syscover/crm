@@ -5,4 +5,4 @@
 <li class="current">
     <a href="{{ route($routeSuffix, ['modal' => 0]) }}">{{ trans_choice($objectTrans, 2) }}</a>
 </li>
-<!-- /.crm::customer.breadcrumbs -->
+<!-- /crm::customer.breadcrumbs -->

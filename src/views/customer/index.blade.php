@@ -32,7 +32,7 @@
             }
         });
     </script>
-    <!-- /.crm::customer.index -->
+    <!-- /crm::customer.index -->
 @stop
 
 @section('tHead')
@@ -51,5 +51,5 @@
         @endif
         <th>{{ trans_choice('pulsar::pulsar.action', 2) }}</th>
     </tr>
-    <!-- /.crm::customer.index -->
+    <!-- /crm::customer.index -->
 @stop
