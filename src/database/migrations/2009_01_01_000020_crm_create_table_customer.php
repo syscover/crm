@@ -30,7 +30,7 @@ class CrmCreateTableCustomer extends Migration {
                 $table->string('name_301')->nullable();
                 $table->string('surname_301')->nullable();
                 $table->string('avatar_301')->nullable();
-                $table->integer('birth_date_301')->unsigned()->nullable();
+                $table->integer('birth_date_301')->nullable();
                 $table->string('email_301');
                 $table->string('phone_301')->nullable();
                 $table->string('mobile_301')->nullable();
