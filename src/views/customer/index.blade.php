@@ -11,12 +11,12 @@
                     "displayStart": {{ $offset }},
                     "columnDefs": [
                         @if(isset($modal) && $modal)
-                        { "sortable": false, "targets": [8]},
-                        { "class": "align-center", "targets": [6,7,8]}
+                            { "sortable": false, "targets": [8]},
+                            { "class": "align-center", "targets": [6,7,8]}
                         @else
-                        { "sortable": false, "targets": [8,9]},
-                        { "class": "checkbox-column", "targets": [8]},
-                        { "class": "align-center", "targets": [6,7,9]}
+                            { "sortable": false, "targets": [8,9]},
+                            { "class": "checkbox-column", "targets": [8]},
+                            { "class": "align-center", "targets": [6,7,9]}
                         @endif
                     ],
                     'processing': true,
