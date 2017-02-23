@@ -52,6 +52,8 @@ class CrmCreateTableCustomer extends Migration {
                 $table->string('latitude_301')->nullable();
                 $table->string('longitude_301')->nullable();
                 $table->integer('field_group_id_301')->unsigned()->nullable();
+
+                // data
                 $table->text('data_301')->nullable();
 
                 $table->foreign('group_id_301', 'fk01_012_301_customer')
