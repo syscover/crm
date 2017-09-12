@@ -10,7 +10,7 @@
     ],
     "require": {
         "php": ">=5.6.4",
-        "syscover/pulsar": "~2.0"
+        "syscover/pulsar": "dev-master"
     },
     "autoload": {
         "psr-4": {
