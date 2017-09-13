@@ -42,7 +42,7 @@ class ResetPassword extends Notification
                 'email.content.reset-password-plain',
             ])
             ->line(trans('pulsar::pulsar.message_reset_password_notification_01'))
-            ->action(trans('pulsar::pulsar.reset_password'), route('crmShowResetForm-' . user_lang(), ['token' => $this->token]))
+            ->action(trans('pulsar::pulsar.reset_password'), route('showResetForm-' . user_lang(), ['token' => $this->token]))
             ->line(trans('pulsar::pulsar.message_reset_password_notification_02'));
     }
 }
