@@ -246,14 +246,4 @@ class Customer extends Model implements AuthenticatableContract, AuthorizableCon
     {
         $this->notify(new ResetPasswordNotification($token));
     }
-
-    /**
-     * Get the name of the unique identifier for the user.
-     *
-     * @return string
-     */
-    public function getAuthIdentifierName()
-    {
-        return $this->user_301;
-    }
 }
