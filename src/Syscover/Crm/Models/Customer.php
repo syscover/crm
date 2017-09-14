@@ -41,8 +41,8 @@ class Customer extends Model implements AuthenticatableContract, AuthorizableCon
     ];
     private static $rules   = [
         'name'      => 'required|between:2,255',
-        'email'     => 'required|between:2,255|email|mysql2.unique:009_301_customer,email_301',
-        'user'      => 'required|between:2,255|mysql2.unique:009_301_customer,user_301',
+        'email'     => 'required|between:2,255|email|unique:mysql2.009_301_customer,email_301',
+        'user'      => 'required|between:2,255|unique:mysql2.009_301_customer,user_301',
         'password'  => 'required|between:4,50|same:repassword'
     ];
 
