@@ -79,7 +79,7 @@ class CustomerController extends Controller
         if(isset($parameters['id']))
         {
             // get attachments from base lang
-            $attachments = AttachmentLibrary::getRecords($this->package, 'cms-article', $parameters['id'], base_lang()->id_001, true);
+            $attachments = AttachmentLibrary::getRecords($this->package, 'cms-article', $parameters['id'], base_lang2()->id_001, true);
 
             // merge parameters and attachments array
             $parameters  = array_merge($parameters, $attachments);
@@ -123,7 +123,7 @@ class CustomerController extends Controller
 
         // set attachments
         $attachments = json_decode($this->request->input('attachments'));
-        AttachmentLibrary::storeAttachments($attachments, 'crm', 'crm-customer', $customer->id_301, base_lang()->id_001);
+        AttachmentLibrary::storeAttachments($attachments, 'crm', 'crm-customer', $customer->id_301, base_lang2()->id_001);
     }
 
     public function editCustomRecord($parameters)
@@ -148,7 +148,7 @@ class CustomerController extends Controller
         }, config('pulsar.states'));
 
         // get attachments elements
-        $attachments = AttachmentLibrary::getRecords('crm', 'crm-customer', $parameters['object']->id_301, base_lang()->id_001);
+        $attachments = AttachmentLibrary::getRecords('crm', 'crm-customer', $parameters['object']->id_301, base_lang2()->id_001);
 
         // merge parameters and attachments array
         $parameters['attachmentFamilies']   = AttachmentFamily::getAttachmentFamilies(['resource_id_015' => 'cms-article']);
