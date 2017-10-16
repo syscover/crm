@@ -93,7 +93,7 @@ class CustomerController extends Controller
         $customer = Customer::create([
             'lang_id_301'               => $this->request->has('lang')? $this->request->input('lang') : null,
             'group_id_301'              => $this->request->input('group'),
-            'date_301'                  => $this->request->has('date')? \DateTime::createFromFormat(config('pulsar.datePattern'), $this->request->input('date'))->getTimestamp() : null,
+            'date_301'                  => $this->request->input('date')? \DateTime::createFromFormat(config('pulsar.datePattern'), $this->request->input('date'))->getTimestamp() : null,
             'company_301'               => $this->request->has('company')? $this->request->input('company') : null,
             'tin_301'                   => $this->request->has('tin')? $this->request->input('tin') : null,
             'gender_id_301'             => $this->request->has('gender')? $this->request->input('gender') : null,
@@ -173,7 +173,7 @@ class CustomerController extends Controller
         $customer = [
             'lang_id_301'               => $this->request->has('lang')? $this->request->input('lang') : null,
             'group_id_301'              => $this->request->input('group'),
-            'date_301'                  => $this->request->has('date')? \DateTime::createFromFormat(config('pulsar.datePattern'), $this->request->input('date'))->getTimestamp() : null,
+            'date_301'                  => $this->request->input('date')? \DateTime::createFromFormat(config('pulsar.datePattern'), $this->request->input('date'))->getTimestamp() : null,
             'company_301'               => $this->request->has('company')? $this->request->input('company') : null,
             'tin_301'                   => $this->request->has('tin')? $this->request->input('tin') : null,
             'gender_id_301'             => $this->request->has('gender')? $this->request->input('gender') : null,
