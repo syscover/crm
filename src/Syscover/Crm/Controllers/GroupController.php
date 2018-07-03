@@ -1,4 +1,4 @@
-<?php namespace Syscover\Crm\Controllers;
+<?php namespace Syscover\Crm\Old\Controllers;
 
 use Syscover\Pulsar\Core\Controller;
 use Syscover\Crm\Old\Models\Group;

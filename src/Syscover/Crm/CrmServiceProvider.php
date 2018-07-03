@@ -1,4 +1,4 @@
-<?php namespace Syscover\Crm;
+<?php namespace Syscover\Crm\Old;
 
 use Illuminate\Support\ServiceProvider;
 

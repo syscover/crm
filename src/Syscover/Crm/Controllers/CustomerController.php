@@ -1,4 +1,4 @@
-<?php namespace Syscover\Crm\Controllers;
+<?php namespace Syscover\Crm\Old\Controllers;
 
 use Syscover\Pulsar\Core\Controller;
 use Illuminate\Support\Facades\Hash;
