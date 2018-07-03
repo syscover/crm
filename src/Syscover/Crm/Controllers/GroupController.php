@@ -1,7 +1,7 @@
 <?php namespace Syscover\Crm\Controllers;
 
 use Syscover\Pulsar\Core\Controller;
-use Syscover\Crm\Models\Group;
+use Syscover\Crm\Old\Models\Group;
 
 /**
  * Class GroupController

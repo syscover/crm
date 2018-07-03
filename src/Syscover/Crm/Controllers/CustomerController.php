@@ -5,8 +5,8 @@ use Illuminate\Support\Facades\Hash;
 use Syscover\Pulsar\Models\AttachmentFamily;
 use Syscover\Pulsar\Libraries\AttachmentLibrary;
 use Syscover\Pulsar\Models\Lang;
-use Syscover\Crm\Models\Customer;
-use Syscover\Crm\Models\Group;
+use Syscover\Crm\Old\Models\Customer;
+use Syscover\Crm\Old\Models\Group;
 
 /**
  * Class CustomerController

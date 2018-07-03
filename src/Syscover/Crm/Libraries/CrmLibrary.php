@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Syscover\Pulsar\Libraries\Miscellaneous;
-use Syscover\Crm\Models\Customer;
+use Syscover\Crm\Old\Models\Customer;
 
 class CrmLibrary
 {

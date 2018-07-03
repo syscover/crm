@@ -1,4 +1,4 @@
-<?php namespace Syscover\Crm\Models;
+<?php namespace Syscover\Crm\Old\Models;
 
 use Syscover\Pulsar\Core\Model;
 use Sofa\Eloquence\Eloquence;
