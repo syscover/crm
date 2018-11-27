@@ -74,7 +74,7 @@ you can change email crmPasswordBroker, to custom appearance.
 **8 - How get auth properties**
 Use crm guard to get auth properties
 ```
-auth('crm')
+auth()->guard('crm')
 ```
 
 

@@ -83,12 +83,12 @@ class AuthController extends Controller
 
         $credentials = $request->only('user_301', 'password');
 
-        if(auth('crm')->attempt($credentials, $request->has('remember')))
+        if(auth()->guard('crm')->attempt($credentials, $request->has('remember')))
         {
             // check if customer is confirmed
-            if (!auth('crm')->user()->confirmed_301)
+            if (!auth()->guard('crm')->user()->confirmed_301)
             {
-                auth('crm')->logout();
+                auth()->guard('crm')->logout();
 
                 return redirect($this->loginPath)
                     ->withInput($request->only('user_301', 'remember'))
@@ -98,9 +98,9 @@ class AuthController extends Controller
             }
 
             // check if customer is active
-            if(!auth('crm')->user()->active_301)
+            if(!auth()->guard('crm')->user()->active_301)
             {
-                auth('crm')->logout();
+                auth()->guard('crm')->logout();
 
                 return redirect($this->loginPath)
                     ->withInput($request->only('user_301', 'remember'))
@@ -126,7 +126,7 @@ class AuthController extends Controller
      */
     public function getLogout()
     {
-        auth('crm')->logout();
+        auth()->guard('crm')->logout();
         session()->flush();
 
         return redirect($this->logoutPath);
